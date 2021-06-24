@@ -1,6 +1,7 @@
 import 'package:client_app1/configs/styles/app_colors.dart';
 import 'package:client_app1/configs/styles/custom_text_style.dart';
-import 'package:client_app1/views/home/food/food_home_screen.dart';
+import 'package:client_app1/views/home/snappy_food/snappy_food_home_screen.dart';
+import 'package:client_app1/views/home/snappy_store/snappy_store_home_screen.dart';
 import 'package:client_app1/widgets/custom_inkwell.dart';
 import 'package:client_app1/widgets/custom_rectangular_button.dart';
 import 'package:flutter/material.dart';
@@ -38,11 +39,11 @@ class HomeScreen extends StatelessWidget {
                 Row(
                   children: [
                     Expanded(child: InkWell(
-                      // onTap: (){Get.to(FoodHomeScreen());},
+                      onTap: (){Get.to(SnappyStoreHomeScreen());},
                       child: iconWithText("Snappy Store", "assets/images/house.png"),
                     )),
                     Expanded(child: CustomInkWell(
-                      onTap: (){Get.to(FoodHomeScreen());},
+                      onTap: (){Get.to(SnappyFoodHomeScreen());},
                       child: iconWithText("Snappy Food", "assets/images/food.png"),
                     )),
                   ],
@@ -86,7 +87,7 @@ class HomeScreen extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text("Recommended Snappy Apps",style: CustomTextStyle.ultraBoldTextStyle(color: Colors.white),),
-                SizedBox(height: 5,),
+                SizedBox(height: 10,),
                 Text("We recommend the best for you",style: CustomTextStyle.smallTextStyle1(color: Colors.white),),
                 SizedBox(height: Get.height*0.04,),
                 SizedBox(

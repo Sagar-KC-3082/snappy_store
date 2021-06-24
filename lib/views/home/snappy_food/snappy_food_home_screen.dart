@@ -1,14 +1,14 @@
 import 'package:client_app1/configs/constants/app_constants.dart';
 import 'package:client_app1/configs/styles/custom_text_style.dart';
-import 'package:client_app1/views/home/food/farmers_market/farmers_market_view.dart';
-import 'package:client_app1/views/home/food/food_and_beverage/food_and_beverages_view.dart';
+import 'package:client_app1/views/home/snappy_food/farmers_market/farmers_market_view.dart';
+import 'package:client_app1/views/home/snappy_food/food_and_beverage/food_and_beverages_view.dart';
 import 'package:client_app1/widgets/custom_appbar.dart';
 import 'package:client_app1/widgets/custom_inkwell.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 
-class FoodHomeScreen extends StatelessWidget {
+class SnappyFoodHomeScreen extends StatelessWidget {
 
   roundedImage(String imageUrl){
     return Padding(

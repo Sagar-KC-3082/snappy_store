@@ -1,4 +1,5 @@
 import 'package:client_app1/configs/styles/custom_text_style.dart';
+import 'package:client_app1/views/search/search_screen.dart';
 import 'package:client_app1/widgets/custom_inkwell.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -24,7 +25,9 @@ class CustomAppBarRow extends StatelessWidget {
           Spacer(),
           searchBar == null ? Icon(Icons.notifications_none,color: Colors.grey,) :
               CustomInkWell(
-                onTap: (){},
+                onTap: (){
+                  Get.to(SearchScreen());
+                },
                 child: Icon(Icons.search),
               )
         ],
@@ -52,13 +55,16 @@ class CustomAppBarRowWithCustomIcon extends StatelessWidget {
           Spacer(),
           Text(title,style: CustomTextStyle.appBarTextStyle(),),
           Spacer(),
-          CustomInkWell(
-            onTap: (){},
-            child: icon,
-          )
+          icon == null ? Container() :
+                CustomInkWell(
+                  onTap: (){},
+                  child: icon,
+                )
         ],
       ),
     );
   }
 }
+
+
 

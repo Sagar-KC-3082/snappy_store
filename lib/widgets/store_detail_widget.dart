@@ -3,13 +3,15 @@ import 'package:client_app1/configs/constants/app_constants.dart';
 import 'package:client_app1/configs/styles/app_colors.dart';
 import 'package:client_app1/configs/styles/custom_text_style.dart';
 import 'package:client_app1/models/common_models/store_detail_model.dart';
-import 'package:client_app1/views/home/cart/your_cart.dart';
+import 'package:client_app1/views/cart/your_cart_screen.dart';
+import 'package:client_app1/views/search/search_screen.dart';
 import 'package:client_app1/widgets/add_item_widget.dart';
 import 'package:client_app1/widgets/custom_appbar.dart';
 import 'package:client_app1/widgets/custom_inkwell.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 
 class StoreDetailWidget extends StatelessWidget {
 
@@ -78,7 +80,9 @@ class StoreDetailWidget extends StatelessWidget {
                     children: [
                       Text("Menu",style: CustomTextStyle.appBarTextStyle(),),
                       SizedBox(width: 5,),
-                      Icon(Icons.search,color: Colors.grey,),
+                      CustomInkWell(
+                          onTap: (){Get.to(SearchScreen());},
+                          child: Icon(Icons.search,color: Colors.grey,)),
                       Spacer(),
                       Icon(Icons.navigate_next,color: Colors.grey,)
                     ],
@@ -97,8 +101,8 @@ class StoreDetailWidget extends StatelessWidget {
                   ),
                   SizedBox(height: 20),
 
-                  storeDetailModel.stars=="30" ? AddItemWidget(imageUrl: "assets/images/grocery6.png",title1: "Pull Over",title2: "Mango",price: "51\$",): AddItemWidget(imageUrl: "assets/images/foodItem7.png",title1: "Butter Panner",title2: "Mango",price: "51\$",),
-                  storeDetailModel.stars=="30" ? AddItemWidget(imageUrl: "assets/images/grocery5.png",title1: "Ginger",title2: "Spices",price: "51\$",): AddItemWidget(imageUrl: "assets/images/foodItem8.png",title1: "Kaju Panner",title2: "Raisins",price: "100\$",),
+                  storeDetailModel.stars=="30" ? AddItemWidget(imageUrl: "assets/images/grocery6.png",title1: "Pull Over",title2: "Mango",price: "51\$",): storeDetailModel.stars == "69" ?  AddItemWidget(imageUrl: "assets/images/cloth5.png",title1: "Pull Over",title2: "Winter",price: "51\$",):  AddItemWidget(imageUrl: "assets/images/foodItem7.png",title1: "Butter Panner",title2: "Mango",price: "51\$",),
+                  storeDetailModel.stars=="30" ? AddItemWidget(imageUrl: "assets/images/grocery5.png",title1: "Ginger",title2: "Spices",price: "51\$",): storeDetailModel.stars == "69" ?  AddItemWidget(imageUrl: "assets/images/cloth6.png",title1: "Blouse",title2: "Summer",price: "32\$",): AddItemWidget(imageUrl: "assets/images/foodItem8.png",title1: "Kaju Panner",title2: "Raisins",price: "100\$",),
                   SizedBox(height: 10,),
 
                   Row(

@@ -29,7 +29,7 @@ class CustomTextStyle {
   }
 
   static smallTextStyle1({Color color}){
-    return TextStyle( fontSize:14,fontWeight: FontWeight.w400,color: color==null?AppColors.textDarkColor:color,fontFamily: "PoppinsRegular" );
+    return TextStyle( fontSize:14,fontWeight: FontWeight.w500,color: color==null?AppColors.textDarkColor:color,fontFamily: "PoppinsRegular" );
   }
 
   static smallBoldTextStyle1({Color color}){

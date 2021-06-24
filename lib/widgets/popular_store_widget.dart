@@ -5,6 +5,7 @@ import 'package:client_app1/widgets/custom_appbar.dart';
 import 'package:client_app1/widgets/custom_store_title_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'custom_slliver_grid.dart';
 
 class PopularStoreWidget extends StatelessWidget {
 
@@ -26,11 +27,11 @@ class PopularStoreWidget extends StatelessWidget {
               
               Expanded(
                 child: GridView.builder(
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCountAndFixedHeight(
                       crossAxisCount: 2,
                       crossAxisSpacing: Get.width*0.05,
-                      mainAxisSpacing: 20,
-                      childAspectRatio: 0.65
+                      // mainAxisSpacing: 20,
+                      height: Get.height*0.37
                     ),
                     itemCount: itemList.length,
                     itemBuilder: (context,index){
