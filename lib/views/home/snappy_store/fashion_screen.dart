@@ -39,8 +39,8 @@ class FashionScreen extends StatelessWidget {
                   child: TabBarView(
                     children: [
                       ListView(shrinkWrap: true,children: [CustomCategoryTextAndImageForFashion(title: "New",imageUrl: "assets/images/cloth1.png",),CustomCategoryTextAndImageForFashion(title: "Clothes",imageUrl: "assets/images/cloth2.png",),CustomCategoryTextAndImageForFashion(title: "Shoes",imageUrl: "assets/images/cloth3.png",),CustomCategoryTextAndImageForFashion(title: "Accessories",imageUrl: "assets/images/cloth4.png",)],),
-                      ListView(shrinkWrap: true,children: [CustomCategoryTextAndImageForFashion(title: "Accessories",imageUrl: "assets/images/cloth4.png",),CustomCategoryTextAndImageForFashion(title: "New",imageUrl: "assets/images/cloth1.png",),CustomCategoryTextAndImageForFashion(title: "Clothes",imageUrl: "assets/images/cloth2.png",),CustomCategoryTextAndImageForFashion(title: "Shoes",imageUrl: "assets/images/cloth3.png",)],),
-                      ListView(shrinkWrap: true,children: [CustomCategoryTextAndImageForFashion(title: "New",imageUrl: "assets/images/cloth1.png",),CustomCategoryTextAndImageForFashion(title: "Clothes",imageUrl: "assets/images/cloth2.png",),CustomCategoryTextAndImageForFashion(title: "Shoes",imageUrl: "assets/images/cloth3.png",),CustomCategoryTextAndImageForFashion(title: "Accessories",imageUrl: "assets/images/cloth4.png",)],),
+                      ListView(shrinkWrap: true,children: [CustomCategoryTextAndImageForFashion(title: "New",imageUrl: "assets/images/cloth8.jpg",),CustomCategoryTextAndImageForFashion(title: "Clothes",imageUrl: "assets/images/cloth9.jpg",),CustomCategoryTextAndImageForFashion(title: "Shoes",imageUrl: "assets/images/cloth10.jpg",),CustomCategoryTextAndImageForFashion(title: "Accessories",imageUrl: "assets/images/cloth11.jpg",)],),
+                      ListView(shrinkWrap: true,children: [CustomCategoryTextAndImageForFashion(title: "Baby Boy",imageUrl: "assets/images/cloth15.jpg",),CustomCategoryTextAndImageForFashion(title: "Baby Girl",imageUrl: "assets/images/cloth14.jpg",)],),
 
                     ],
                   ),

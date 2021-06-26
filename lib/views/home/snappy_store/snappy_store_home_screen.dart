@@ -25,14 +25,14 @@ class SnappyStoreHomeScreen extends StatelessWidget {
             child: Column(
               children: [
                 CustomAppBarRowWithCustomIcon(title:"Snappy Store",),
-                SizedBox(height: 20,),
+                SizedBox(height: 30,),
                 
                 Container(
                   height: Get.height*0.8,width: Get.width,
                   child: GridView.builder(
                       itemCount: _snappyStoreCategoryList.length,
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCountAndFixedHeight(
-                        crossAxisCount: 3,height: Get.height*0.14,crossAxisSpacing: 20
+                        crossAxisCount: 3,height: Get.height*0.17,crossAxisSpacing: 15
                       ),
                       itemBuilder: (context,index){
                         return Center(child: CustomTextIconColumn(imageUrl: _snappyStoreCategoryList[index]["imageUrl"],title: _snappyStoreCategoryList[index]["name"],));
@@ -48,26 +48,55 @@ class SnappyStoreHomeScreen extends StatelessWidget {
 }
 
 
-class CustomTextIconColumn extends StatelessWidget {
-
-  final List<StoreDetailModel> _storeList = [StoreDetailModel(storeName: "StoreName",category: "Category",stars: "69",rating: "10",detail:"Short dress in soft cotton jersey with decorative buttons down the front and a wide, frill-trimmed square neckline with concealed elastication. Elasticated seam under the bust and short puff sleeves with a small frill trim.",imageList: ["assets/images/fashionStore1.png","assets/images/fashionStore4.png","assets/images/fashionStore3.png"]),StoreDetailModel(storeName: "StoreName",category: "Category",stars: "69",rating: "69",imageList: ["assets/images/fashionStore2.png","assets/images/fashionStore1.png"]),StoreDetailModel(storeName: "StoreName",category: "Category",stars: "69",rating: "45",imageList: ["assets/images/fashionStore3.png","assets/images/fashionStore4.png"]),StoreDetailModel(storeName: "StoreName",category: "Category",stars: "69",rating: "54",imageList: ["assets/images/fashionStore1.png","assets/images/fashionStore1.png"]),];
+class CustomTextIconColumn extends StatefulWidget {
 
   String imageUrl;
   String title;
   CustomTextIconColumn({this.imageUrl,this.title});
 
   @override
+  _CustomTextIconColumnState createState() => _CustomTextIconColumnState();
+}
+
+class _CustomTextIconColumnState extends State<CustomTextIconColumn> {
+
+  bool isTapped = false;
+  final List<StoreDetailModel> _storeList = [StoreDetailModel(storeName: "StoreName",category: "Category",stars: "69",rating: "10",detail:"Short dress in soft cotton jersey with decorative buttons down the front and a wide, frill-trimmed square neckline with concealed elastication. Elasticated seam under the bust and short puff sleeves with a small frill trim.",imageList: ["assets/images/fashionStore1.png","assets/images/fashionStore4.png","assets/images/fashionStore3.png"],menuCategories: ["Vegetable","Snack","Beverages","Fruits","Cold Drinks"],items: [{"imageUrl":"assets/images/foodItem7.png","title1":"Butter Panner","title2":"Rich Protein","price":"23"},{"imageUrl":"assets/images/foodItem8.png","title1":"Kaju Panner","title2":"Heavy Calorie","price":"54"},{"imageUrl":"assets/images/foodItem9.jpg","title1":"Momo","title2":"Chinese","price":"19"}]),StoreDetailModel(storeName: "StoreName",category: "Category",stars: "69",rating: "69",imageList: ["assets/images/fashionStore2.png","assets/images/fashionStore1.png"]),StoreDetailModel(storeName: "StoreName",category: "Category",stars: "69",rating: "45",imageList: ["assets/images/fashionStore3.png","assets/images/fashionStore4.png"]),StoreDetailModel(storeName: "StoreName",category: "Category",stars: "69",rating: "54",imageList: ["assets/images/fashionStore1.png","assets/images/fashionStore1.png"]),];
+
+  @override
   Widget build(BuildContext context) {
     return CustomInkWell(
-      onTap: (){
-        title == "Fashion" ? Get.to(FashionScreen()) : Get.to(PopularStoreWidget(itemList: _storeList,));
+      onTap: ()async{
+        setState(() {
+          isTapped = !isTapped;
+        });
+        widget.title == "Fashion" ?
+              await Future.delayed(Duration(milliseconds: 200),(){
+                Get.to(FashionScreen(),transition: Transition.rightToLeftWithFade);
+                setState(() {
+                  isTapped = !isTapped;
+                });
+              }) :
+              await Future.delayed(Duration(milliseconds: 200),(){
+                Get.to(PopularStoreWidget(itemList: _storeList,),transition: Transition.rightToLeftWithFade);
+                setState(() {
+                  isTapped = !isTapped;
+                });
+              });
+
       },
       child: Column(
-        mainAxisSize: MainAxisSize.min,
         children: [
-              Image.asset(imageUrl,fit: BoxFit.cover,),
+              Container(
+                  padding: EdgeInsets.all(25),
+                  decoration: BoxDecoration(
+                      color: isTapped ? Colors.blue : Colors.transparent,
+                      shape: BoxShape.circle,
+                      border: Border.all(color: Color(0xFFEBF0FF))
+                  ),
+                  child: Image.asset(widget.imageUrl,fit: BoxFit.cover,)),
               SizedBox(height: 10,),
-              Text(title,style: CustomTextStyle.smallBoldTextStyle1(color: Colors.grey),textAlign: TextAlign.center,)
+              Text(widget.title,style: CustomTextStyle.smallBoldTextStyle1(color: Colors.grey),textAlign: TextAlign.center,)
         ],
       ),
     );

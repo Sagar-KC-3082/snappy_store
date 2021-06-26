@@ -36,6 +36,7 @@ class StoreDetailWidget extends StatelessWidget {
             SizedBox(
               height: Get.height*0.4,
               child: ListView.builder(
+                physics: ClampingScrollPhysics(),
                   scrollDirection: Axis.horizontal,
                   itemCount: storeDetailModel.imageList.length,
                   itemBuilder: (context,index){
@@ -84,26 +85,40 @@ class StoreDetailWidget extends StatelessWidget {
                           onTap: (){Get.to(SearchScreen());},
                           child: Icon(Icons.search,color: Colors.grey,)),
                       Spacer(),
-                      Icon(Icons.navigate_next,color: Colors.grey,)
+                      Text("12 Items",style: CustomTextStyle.smallTextStyle1(color: Colors.grey),),
                     ],
                   ),
                   SizedBox(height: 20),
 
+                 ( storeDetailModel.menuCategories == null || storeDetailModel.menuCategories.length==0 ) ? Container() :
                   Container(
                     height: 45  ,width: Get.width,
-                    child: ListView(
+                    child: ListView.builder(
+                      physics: ClampingScrollPhysics(),
                       shrinkWrap: true,
                       scrollDirection: Axis.horizontal,
-                      children: [
-                        CustomContainer(title: "Vegetable",),CustomContainer(title: "Snack",),CustomContainer(title: "Beverages",),CustomContainer(title: "Fruits",),CustomContainer(title: "Cold Drinks",),
-                      ],
+                      itemCount: storeDetailModel.menuCategories.length,
+                      itemBuilder: (context,index){
+                        return CustomContainer(title: storeDetailModel.menuCategories[index],);
+                      },
                     ),
                   ),
+
                   SizedBox(height: 20),
 
-                  storeDetailModel.stars=="30" ? AddItemWidget(imageUrl: "assets/images/grocery6.png",title1: "Pull Over",title2: "Mango",price: "51\$",): storeDetailModel.stars == "69" ?  AddItemWidget(imageUrl: "assets/images/cloth5.png",title1: "Pull Over",title2: "Winter",price: "51\$",):  AddItemWidget(imageUrl: "assets/images/foodItem7.png",title1: "Butter Panner",title2: "Mango",price: "51\$",),
-                  storeDetailModel.stars=="30" ? AddItemWidget(imageUrl: "assets/images/grocery5.png",title1: "Ginger",title2: "Spices",price: "51\$",): storeDetailModel.stars == "69" ?  AddItemWidget(imageUrl: "assets/images/cloth6.png",title1: "Blouse",title2: "Summer",price: "32\$",): AddItemWidget(imageUrl: "assets/images/foodItem8.png",title1: "Kaju Panner",title2: "Raisins",price: "100\$",),
-                  SizedBox(height: 10,),
+                  // storeDetailModel.stars=="30" ? AddItemWidget(imageUrl: "assets/images/grocery6.png",title1: "Pull Over",title2: "Mango",price: "51\$",): storeDetailModel.stars == "69" ?  AddItemWidget(imageUrl: "assets/images/cloth5.png",title1: "Pull Over",title2: "Winter",price: "51\$",):  AddItemWidget(imageUrl: "assets/images/foodItem7.png",title1: "Butter Panner",title2: "Mango",price: "51\$",),
+                  // storeDetailModel.stars=="30" ? AddItemWidget(imageUrl: "assets/images/grocery5.png",title1: "Ginger",title2: "Spices",price: "51\$",): storeDetailModel.stars == "69" ?  AddItemWidget(imageUrl: "assets/images/cloth6.png",title1: "Blouse",title2: "Summer",price: "32\$",): AddItemWidget(imageUrl: "assets/images/foodItem8.png",title1: "Kaju Panner",title2: "Raisins",price: "100\$",),
+                  // SizedBox(height: 10,),
+
+                  storeDetailModel.items == null || storeDetailModel.items.length == 0 ? Container():
+                      ListView.builder(
+                        physics: ClampingScrollPhysics(),
+                        shrinkWrap: true,
+                        itemCount: storeDetailModel.items.length,
+                        itemBuilder: (context,index){
+                          return AddItemWidget(imageUrl: storeDetailModel.items[index]["imageUrl"],title1: storeDetailModel.items[index]["title1"],title2: storeDetailModel.items[index]["title2"],price: storeDetailModel.items[index]["price"],);
+                        },
+                      ),
 
                   Row(
                     children: [
