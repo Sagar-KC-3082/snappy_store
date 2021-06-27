@@ -10,8 +10,9 @@ class FullWidthButton extends StatelessWidget {
   final String title;
   final Color color;
   final Function onTap;
+  final BorderRadius borderRadius;
   
-  FullWidthButton({this.title,this.color,this.onTap});
+  FullWidthButton({this.title,this.color,this.onTap,this.borderRadius});
   
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class FullWidthButton extends StatelessWidget {
       child: Container(
         width: Get.width,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(21),
+          borderRadius: borderRadius == null ? BorderRadius.circular(20) : borderRadius,
           color: color
         ),
         padding: EdgeInsets.symmetric(vertical: 22),

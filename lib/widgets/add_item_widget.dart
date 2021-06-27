@@ -1,3 +1,4 @@
+import 'package:client_app1/configs/styles/app_colors.dart';
 import 'package:client_app1/configs/styles/custom_text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -23,8 +24,19 @@ class _AddItemWidgetState extends State<AddItemWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.only(right: 5),
       margin: EdgeInsets.symmetric(vertical: 10),
-      color: Colors.white,
+      decoration: BoxDecoration(
+          color: AppColors.backgroundColor,
+          boxShadow: [
+            BoxShadow(
+                color: Colors.grey.withOpacity(0.1),
+                spreadRadius: 3,
+                blurRadius: 10
+            )
+          ],
+          borderRadius: BorderRadius.circular(10)
+      ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(12),
         child: Row(
@@ -37,7 +49,7 @@ class _AddItemWidgetState extends State<AddItemWidget> {
                 Text(widget.title1,style: CustomTextStyle.mediumTextStyle()),
                 Text(widget.title2,style:  CustomTextStyle.ultraSmallTextStyle(color: Colors.grey)),
                 SizedBox(height: 5,),
-                Text(widget.price,style: CustomTextStyle.smallBoldTextStyle1()),
+                Text("\$ ${widget.price}",style: CustomTextStyle.smallBoldTextStyle1()),
               ],
             ),
             Spacer(),

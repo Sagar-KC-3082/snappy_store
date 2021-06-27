@@ -1,5 +1,6 @@
 
 import 'package:client_app1/configs/constants/app_constants.dart';
+import 'package:client_app1/configs/styles/app_colors.dart';
 import 'package:client_app1/models/common_models/store_detail_model.dart';
 import 'package:client_app1/widgets/custom_appbar.dart';
 import 'package:client_app1/widgets/custom_category_text_and_image.dart';
@@ -13,7 +14,7 @@ class FarmersMarketView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: AppColors.backgroundColor,
+      backgroundColor: AppColors.backgroundColor,
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: AppConstants.screenHorizontalPadding,vertical: AppConstants.screenVerticalPadding),

@@ -22,7 +22,7 @@ class CustomStoreTitleWidget extends StatelessWidget {
 
           ClipRRect(
             borderRadius: BorderRadius.circular(10),
-            child: Image.asset(storeDetailModel.imageList[0],fit: BoxFit.cover,),),
+            child: Image.asset(storeDetailModel.imageList[0],fit: BoxFit.cover,height: Get.height*0.22,width: Get.width*0.45,),),
           SizedBox(height: 5,),
 
           Row(

@@ -5,7 +5,9 @@ class CustomTextField extends StatelessWidget {
 
   final Function validator;
   final bool obSecureText;
-  CustomTextField({this.validator,this.obSecureText});
+  final BorderRadius borderRadius;
+  final String hintText;
+  CustomTextField({this.validator,this.obSecureText,this.borderRadius,this.hintText});
 
   @override
   Widget build(BuildContext context) {
@@ -14,22 +16,24 @@ class CustomTextField extends StatelessWidget {
       validator: validator,
       style: CustomTextStyle.smallTextStyle1(),
       decoration: InputDecoration(
+          hintText:  hintText == null ? "" : hintText,
+          hintStyle: CustomTextStyle.smallTextStyle1(color: Colors.grey),
           errorMaxLines: 1,
           enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.grey.withOpacity(0.2)),
-              borderRadius: BorderRadius.circular(30)
+              borderRadius: borderRadius == null ?  BorderRadius.circular(30) : borderRadius
           ),
           focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.grey.withOpacity(0.2)),
-              borderRadius: BorderRadius.circular(30)
+              borderRadius: borderRadius == null ?  BorderRadius.circular(30) : borderRadius
           ),
           errorBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.red),
-            borderRadius: BorderRadius.circular(30)
+            borderRadius: borderRadius == null ?  BorderRadius.circular(30) : borderRadius
            ),
           focusedErrorBorder: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.red),
-              borderRadius: BorderRadius.circular(30)
+              borderRadius: borderRadius == null ?  BorderRadius.circular(30) : borderRadius
           )
           // border: InputBorder.none
       ),

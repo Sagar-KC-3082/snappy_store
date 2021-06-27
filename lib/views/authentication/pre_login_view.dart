@@ -1,3 +1,4 @@
+import 'package:client_app1/configs/constants/app_constants.dart';
 import 'package:client_app1/configs/styles/app_colors.dart';
 import 'package:client_app1/views/authentication/sign_in_view.dart';
 import 'package:client_app1/views/authentication/sign_up_view.dart';
@@ -13,7 +14,7 @@ class PreLoginView extends StatelessWidget {
       backgroundColor: AppColors.backgroundColor,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15),
+          padding: EdgeInsets.symmetric(horizontal: AppConstants.screenHorizontalPadding,vertical: AppConstants.screenVerticalPadding),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

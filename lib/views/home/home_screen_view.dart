@@ -1,3 +1,4 @@
+import 'package:client_app1/configs/constants/app_constants.dart';
 import 'package:client_app1/configs/styles/app_colors.dart';
 import 'package:client_app1/configs/styles/custom_text_style.dart';
 import 'package:client_app1/views/home/snappy_food/snappy_food_home_screen.dart';
@@ -15,13 +16,12 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: AppColors.backgroundColor,
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 15),
+          padding: EdgeInsets.symmetric(horizontal: AppConstants.screenHorizontalPadding,vertical: AppConstants.screenVerticalPadding),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
 
-                SizedBox(height: 10,),
                 Row(
                   children: [
                     Icon(Icons.menu),
@@ -32,9 +32,9 @@ class HomeScreen extends StatelessWidget {
                 SizedBox(height: 20,),
 
                 homeScreenImageWidget(),
-                SizedBox(height: 20,),
+                SizedBox(height: 30,),
 
-                Text("Category",style: CustomTextStyle.smallBoldTextStyle1(),),
+                Text(" Category",style: CustomTextStyle.smallBoldTextStyle1(),),
 
                 Row(
                   children: [
