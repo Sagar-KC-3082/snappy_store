@@ -11,8 +11,9 @@ class FullWidthButton extends StatelessWidget {
   final Color color;
   final Function onTap;
   final BorderRadius borderRadius;
+  final Border border;
   
-  FullWidthButton({this.title,this.color,this.onTap,this.borderRadius});
+  FullWidthButton({this.title,this.color,this.onTap,this.borderRadius,this.border});
   
   @override
   Widget build(BuildContext context) {
@@ -22,11 +23,12 @@ class FullWidthButton extends StatelessWidget {
         width: Get.width,
         decoration: BoxDecoration(
           borderRadius: borderRadius == null ? BorderRadius.circular(20) : borderRadius,
+          border:  border == null ? null : border ,
           color: color
         ),
         padding: EdgeInsets.symmetric(vertical: 22),
         margin: EdgeInsets.symmetric(horizontal: 0,vertical: 10),
-        child: Center(child: Text(title,style: CustomTextStyle.boldMediumTextStyle(color: Colors.white),),),
+        child: Center(child: Text(title,style: CustomTextStyle.boldMediumTextStyle(color:border == null ? Colors.white : Colors.grey),),),
       ),
     );
   }

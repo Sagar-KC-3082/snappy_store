@@ -7,11 +7,13 @@ class CustomTextField extends StatelessWidget {
   final bool obSecureText;
   final BorderRadius borderRadius;
   final String hintText;
-  CustomTextField({this.validator,this.obSecureText,this.borderRadius,this.hintText});
+  final int maxLines;
+  CustomTextField({this.validator,this.obSecureText,this.borderRadius,this.hintText,this.maxLines});
 
   @override
   Widget build(BuildContext context) {
     return  TextFormField(
+      maxLines: maxLines==null? 1 : maxLines,
       obscureText: obSecureText==null? false : obSecureText,
       validator: validator,
       style: CustomTextStyle.smallTextStyle1(),

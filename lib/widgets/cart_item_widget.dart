@@ -10,7 +10,8 @@ import 'package:get/get.dart';
 class CartItemWidget extends StatefulWidget {
 
   final CartModel cartModel ;
-  CartItemWidget({this.cartModel});
+  final bool hideDeleteIcon;
+  CartItemWidget({this.cartModel,this.hideDeleteIcon});
 
   @override
   _CartItemWidgetState createState() => _CartItemWidgetState();
@@ -55,7 +56,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                      });},
                      child: Icon(Icons.favorite,color: _isTapped ? Colors.pinkAccent : Colors.grey)),
                  SizedBox(width: 10,),
-                 Icon(Icons.delete_outline,color: Colors.grey,),
+                 widget.hideDeleteIcon==true? Container() : Icon(Icons.delete_outline,color: Colors.grey,),
                  SizedBox(width: 5,),
                ],
              ),

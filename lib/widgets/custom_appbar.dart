@@ -40,7 +40,8 @@ class CustomAppBarRowWithCustomIcon extends StatelessWidget {
 
   final String title;
   final Icon icon;
-  CustomAppBarRowWithCustomIcon({this.title,this.icon});
+  final Function onTap;
+  CustomAppBarRowWithCustomIcon({this.title,this.icon,this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -57,9 +58,41 @@ class CustomAppBarRowWithCustomIcon extends StatelessWidget {
           Spacer(),
           icon == null ? Container() :
                 CustomInkWell(
-                  onTap: (){},
+                  onTap: onTap,
                   child: icon,
                 )
+        ],
+      ),
+    );
+  }
+}
+
+
+class CustomAppBarRowWithCustomIconWithNoSpacing extends StatelessWidget {
+
+  final String title;
+  final Icon icon;
+  final Function onTap;
+  CustomAppBarRowWithCustomIconWithNoSpacing({this.title,this.icon,this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 5),
+      child: Row(
+        children: [
+          CustomInkWell(
+              onTap: (){Get.back();},
+              child: Icon(Icons.arrow_back_ios,color: Colors.grey,size: 18,)
+          ),
+          SizedBox(width:5,),
+          Text(title,style: CustomTextStyle.appBarTextStyle(),),
+          Spacer(),
+          icon == null ? Container() :
+          CustomInkWell(
+            onTap: onTap,
+            child: icon,
+          )
         ],
       ),
     );

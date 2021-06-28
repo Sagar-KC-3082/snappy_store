@@ -8,8 +8,8 @@ class CustomTextStyle {
     return TextStyle( fontSize:22,fontWeight: FontWeight.w700,color: color==null?AppColors.textDarkColor:color,fontFamily: "Cabin" );
   }
 
-  static ultraBoldTextStyle({Color color}){
-    return TextStyle( fontSize:24,fontWeight: FontWeight.w700,color: color==null?AppColors.textDarkColor:color,fontFamily: "PoppinsBold" );
+  static ultraBoldTextStyle({Color color,double letterSpacing}){
+    return TextStyle( fontSize:24,fontWeight: FontWeight.w700,color: color==null?AppColors.textDarkColor:color,fontFamily: "PoppinsBold",letterSpacing: letterSpacing==null? null : letterSpacing  );
   }
 
   static ultraBoldTextStyleForHeading({Color color}){
@@ -37,11 +37,11 @@ class CustomTextStyle {
   }
 
   static ultraSmallBoldTextStyle({Color color}){
-    return TextStyle( fontSize:11,fontWeight: FontWeight.w700,color: color==null?AppColors.textDarkColor:color,fontFamily: "PoppinsBold" );
+    return TextStyle( fontSize:12,fontWeight: FontWeight.w700,color: color==null?AppColors.textDarkColor:color,fontFamily: "PoppinsBold" );
   }
 
   static ultraSmallTextStyle({Color color}){
-    return TextStyle( fontSize:11,fontWeight: FontWeight.w400,color: color==null?AppColors.textDarkColor:color,fontFamily: "PoppinsBold" );
+    return TextStyle( fontSize:12,fontWeight: FontWeight.w400,color: color==null?AppColors.textDarkColor:color,fontFamily: "PoppinsRegular" );
   }
 
   // static itemDescription({Color color}){
