@@ -73,7 +73,8 @@ class CustomAppBarRowWithCustomIconWithNoSpacing extends StatelessWidget {
   final String title;
   final Icon icon;
   final Function onTap;
-  CustomAppBarRowWithCustomIconWithNoSpacing({this.title,this.icon,this.onTap});
+  final bool hideBackButton;
+  CustomAppBarRowWithCustomIconWithNoSpacing({this.hideBackButton,this.title,this.icon,this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -81,10 +82,11 @@ class CustomAppBarRowWithCustomIconWithNoSpacing extends StatelessWidget {
       padding: const EdgeInsets.only(top: 5),
       child: Row(
         children: [
-          CustomInkWell(
-              onTap: (){Get.back();},
-              child: Icon(Icons.arrow_back_ios,color: Colors.grey,size: 18,)
-          ),
+         hideBackButton==true? Container() :
+         CustomInkWell(
+             onTap: (){Get.back();},
+             child: Icon(Icons.arrow_back_ios,color: Colors.grey,size: 18,)
+         ),
           SizedBox(width:5,),
           Text(title,style: CustomTextStyle.appBarTextStyle(),),
           Spacer(),

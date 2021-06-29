@@ -1,3 +1,4 @@
+import 'package:client_app1/views/account/account_homescreen_view.dart';
 import 'package:client_app1/views/authentication/pre_login_view.dart';
 import 'package:client_app1/views/checkout/deliver_to_view.dart';
 import 'package:flutter/cupertino.dart';
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: PreLoginView(),
+      home: AccountHomeScreen(),
     );
   }
 }

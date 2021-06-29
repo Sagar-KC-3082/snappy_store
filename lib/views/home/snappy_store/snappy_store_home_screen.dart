@@ -33,27 +33,24 @@ class SnappyStoreHomeScreen extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: AppConstants.screenHorizontalPadding,vertical: AppConstants.screenVerticalPadding),
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                CustomAppBarRowWithCustomIcon(title:"Snappy Store",),
-                SizedBox(height: 30,),
-                
-                Container(
-                  height: Get.height*0.8,width: Get.width,
-                  child: GridView.builder(
-                      itemCount: _snappyStoreCategoryList.length,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCountAndFixedHeight(
-                        crossAxisCount: 3,height: Get.height*0.17,crossAxisSpacing: 15
-                      ),
-                      itemBuilder: (context,index){
-                        return Center(child: CustomTextIconColumn(
-                          storeList: _storeList[index],
-                          imageUrl: _snappyStoreCategoryList[index]["imageUrl"],title: _snappyStoreCategoryList[index]["name"],));
-                      }),
-                )
-              ],
-            ),
+          child: Column(
+            children: [
+              CustomAppBarRowWithCustomIcon(title:"Snappy Store",),
+              SizedBox(height: 30,),
+
+             Expanded(
+                child: GridView.builder(
+                    itemCount: _snappyStoreCategoryList.length,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCountAndFixedHeight(
+                      crossAxisCount: 3,height:150,crossAxisSpacing: 15
+                    ),
+                    itemBuilder: (context,index){
+                      return Center(child: CustomTextIconColumn(
+                        storeList: _storeList[index],
+                        imageUrl: _snappyStoreCategoryList[index]["imageUrl"],title: _snappyStoreCategoryList[index]["name"],));
+                    }),
+              )
+            ],
           ),
         ),
       ),

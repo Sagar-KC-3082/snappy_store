@@ -31,6 +31,7 @@ class OrderDetailsScreen extends StatelessWidget {
               SizedBox(height: 10,),
 
               ListView.builder(
+                physics: ClampingScrollPhysics(),
                 shrinkWrap: true,
                 itemCount: _listCartItems.length,
                 itemBuilder: (context,index){
