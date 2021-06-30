@@ -16,12 +16,12 @@ class CustomTextStyle {
     return TextStyle( fontSize:24,fontWeight: FontWeight.w700,color: color==null?AppColors.textDarkColor:color,fontFamily: "MetroPolisRegular" );
   }
 
-  static appBarTextStyle({Color color}){
-    return TextStyle( fontSize:18,fontWeight: FontWeight.w700,color: color==null?AppColors.textDarkColor:color,fontFamily: "MetroPolisRegular" );
+  static appBarTextStyle({Color color,fontFamily}){
+    return TextStyle( fontSize:18,fontWeight: FontWeight.w700,color: color==null?AppColors.textDarkColor:color,fontFamily:fontFamily==null?  "MetroPolisRegular" : fontFamily );
   }
 
-  static boldMediumTextStyle({Color color}){
-    return TextStyle( fontSize:16,fontWeight: FontWeight.w700,color: color==null?AppColors.textDarkColor:color,fontFamily: "Cabin" );
+  static boldMediumTextStyle({Color color,fontFamily}){
+    return TextStyle( fontSize:16,fontWeight: FontWeight.w700,color: color==null?AppColors.textDarkColor:color,fontFamily: fontFamily==null ? "Cabin" : fontFamily );
   }
 
   static mediumTextStyle({Color color}){

@@ -2,7 +2,6 @@ import 'package:client_app1/configs/constants/app_constants.dart';
 import 'package:client_app1/configs/styles/app_colors.dart';
 import 'package:client_app1/configs/styles/custom_text_style.dart';
 import 'package:client_app1/views/account/profile_view.dart';
-import 'package:client_app1/views/checkout/add_address_view.dart';
 import 'package:client_app1/views/checkout/deliver_to_view.dart';
 import 'package:client_app1/views/checkout/payment_method_view.dart';
 import 'package:client_app1/views/orders/order_home_screen_view.dart';
