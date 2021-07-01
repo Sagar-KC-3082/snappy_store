@@ -2,7 +2,11 @@ import 'package:client_app1/configs/constants/app_constants.dart';
 import 'package:client_app1/configs/styles/app_colors.dart';
 import 'package:client_app1/configs/styles/custom_text_style.dart';
 import 'package:client_app1/models/home/snappy_classified/featured_ads_models.dart';
+import 'package:client_app1/models/home/snappy_classified/snappy_classified_category_models.dart';
+import 'package:client_app1/models/home/snappy_classified/snappy_classified_others_account_model.dart';
 import 'package:client_app1/models/home/snappy_classified/snappy_classified_product_detail_model.dart';
+import 'package:client_app1/views/home/snappy_classified/snappy_classified_account/snappy_classified_others_account_view.dart';
+import 'package:client_app1/widgets/custom_inkwell.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -16,7 +20,13 @@ class SnappyClassifiedProductDetailPageScreen extends StatelessWidget {
     FeaturedAdsModels(title1: "Rolls Royce",title2: "This is the brand new car",title3: "\$ 1211",imageUrl: "assets/images/car3.jpg")
   ];
 
+  final List<SnappyClassifiedOthersAccountModel> snappyClassifiedOthersAccountModel = [
+    SnappyClassifiedOthersAccountModel(website:"www.demo.com",imageurl:"assets/images/user.jpg",name: "John Doe",email: "johnny12@gmail.com",phone: "8930872204",activeSince: "October 12",publishedAdsList:[SnappyClassifiedCategoryModels(name: "Audi Q7 for sale",price: "5000",days:"1 days",location: "Delhi,India",imageUrl: "assets/images/car.jpg"),SnappyClassifiedCategoryModels(name: "Tata Nisan Famliy Seater",price: "5000",days:"1 days",location: "Delhi,India",imageUrl: "assets/images/car2.jpg"),SnappyClassifiedCategoryModels(name: "Ferrari Gt453",price: "5000",days:"1 days",location: "Delhi,India",imageUrl: "assets/images/car3.jpg")],aboutMe: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type."),
+    SnappyClassifiedOthersAccountModel(website:"www.demo.com",imageurl:"assets/images/user1.png",name: "Vimala Pradhan",email: "vimala78@gmail.com",phone: "5454572204",activeSince: "June 22",publishedAdsList:[SnappyClassifiedCategoryModels(name: "Tata Nisan Famliy Seater",price: "5000",days:"1 days",location: "Delhi,India",imageUrl: "assets/images/car2.jpg"),SnappyClassifiedCategoryModels(name: "Audi Q7 for sale",price: "5000",days:"1 days",location: "Delhi,India",imageUrl: "assets/images/car3.jpg")],aboutMe: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type."),
+  ];
+
   final SnappyClassifiedProductDetailModel snappyClassifiedProductDetailModel;
+
   SnappyClassifiedProductDetailPageScreen({this.snappyClassifiedProductDetailModel});
 
   @override
@@ -98,24 +108,29 @@ class SnappyClassifiedProductDetailPageScreen extends StatelessWidget {
                   Text("Contact Information",style: CustomTextStyle.boldMediumTextStyle(fontFamily: "PoppinsBold"),),
                   SizedBox(height: 10,),
 
-                  Row(
-                    children: [
-                      CircleAvatar(
-                        backgroundImage: AssetImage("assets/images/user.jpg"),
-                        radius: 30,
-                      ),
-                      SizedBox(width: 15,),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text("John Doe",style: CustomTextStyle.smallTextStyle1(),),
-                          Text("Member since Sep 2021",style: CustomTextStyle.ultraSmallTextStyle(),),
-                          Text("SEE PROFILE",style: CustomTextStyle.smallTextStyle1(color: Colors.blue),)
-                        ],
-                      ),
-                      Spacer(),
-                      Icon(Icons.navigate_next,color: Colors.grey,)
-                    ],
+                  CustomInkWell(
+                    onTap: (){
+                      Get.to(SnappyClassifiedOthersAccountScreen(snappyClassifiedOthersAccountModel: snappyClassifiedOthersAccountModel[0],));
+                    },
+                    child: Row(
+                      children: [
+                        CircleAvatar(
+                          backgroundImage: AssetImage("assets/images/user.jpg"),
+                          radius: 30,
+                        ),
+                        SizedBox(width: 15,),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text("John Doe",style: CustomTextStyle.smallTextStyle1(),),
+                            Text("Member since Sep 2021",style: CustomTextStyle.ultraSmallTextStyle(),),
+                            Text("SEE PROFILE",style: CustomTextStyle.smallTextStyle1(color: Colors.blue),)
+                          ],
+                        ),
+                        Spacer(),
+                        Icon(Icons.navigate_next,color: Colors.grey,)
+                      ],
+                    ),
                   ),
                   SizedBox(height: 20,),
 
@@ -132,20 +147,25 @@ class SnappyClassifiedProductDetailPageScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 20,),
 
-                  Row(
-                    children: [
-                      CircleAvatar(
-                        backgroundImage: AssetImage("assets/images/user1.png"),
-                        radius: 30,
-                      ),
-                      SizedBox(width: 15,),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text("Vimala Pradhan",style: CustomTextStyle.smallTextStyle1(),),
-                        ],
-                      ),
-                    ],
+                  CustomInkWell(
+                    onTap: (){
+                      Get.to(SnappyClassifiedOthersAccountScreen(snappyClassifiedOthersAccountModel: snappyClassifiedOthersAccountModel[1],));
+                    },
+                    child: Row(
+                      children: [
+                        CircleAvatar(
+                          backgroundImage: AssetImage("assets/images/user1.png"),
+                          radius: 30,
+                        ),
+                        SizedBox(width: 15,),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text("Vimala Pradhan",style: CustomTextStyle.smallTextStyle1(),),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                   SizedBox(height: 10,),
 

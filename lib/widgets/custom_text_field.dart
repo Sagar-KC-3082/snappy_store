@@ -9,7 +9,8 @@ class CustomTextField extends StatelessWidget {
   final String hintText;
   final int maxLines;
   final TextEditingController controller;
-  CustomTextField({this.controller,this.validator,this.obSecureText,this.borderRadius,this.hintText,this.maxLines});
+  final EdgeInsets contentPadding;
+  CustomTextField({this.contentPadding,this.controller,this.validator,this.obSecureText,this.borderRadius,this.hintText,this.maxLines});
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +21,7 @@ class CustomTextField extends StatelessWidget {
       validator: validator,
       style: CustomTextStyle.smallTextStyle1(),
       decoration: InputDecoration(
+        contentPadding: contentPadding != null ? contentPadding : null,
           hintText:  hintText == null ? "" : hintText,
           hintStyle: CustomTextStyle.smallTextStyle1(color: Colors.grey),
           errorMaxLines: 1,
