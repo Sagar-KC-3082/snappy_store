@@ -1,7 +1,7 @@
 import 'package:client_app1/configs/styles/custom_text_style.dart';
 import 'package:client_app1/models/home/snappy_classified/snappy_classified_category_models.dart';
 import 'package:client_app1/models/home/snappy_classified/snappy_classified_product_detail_model.dart';
-import 'package:client_app1/views/home/snappy_classified/snappy_classified_product_detail_view.dart';
+import 'package:client_app1/views/home/snappy_classified/product_detail_view.dart';
 import 'package:client_app1/widgets/custom_inkwell.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

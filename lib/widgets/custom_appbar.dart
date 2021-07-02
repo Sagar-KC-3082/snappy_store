@@ -1,3 +1,4 @@
+import 'package:client_app1/configs/styles/app_colors.dart';
 import 'package:client_app1/configs/styles/custom_text_style.dart';
 import 'package:client_app1/views/search/search_screen.dart';
 import 'package:client_app1/widgets/custom_inkwell.dart';
@@ -101,5 +102,26 @@ class CustomAppBarRowWithCustomIconWithNoSpacing extends StatelessWidget {
   }
 }
 
+
+
+class CustomColorFullAppBar extends StatelessWidget {
+
+  final String title;
+  CustomColorFullAppBar({this.title});
+
+  @override
+  Widget build(BuildContext context) {
+    return  Container(
+      padding: EdgeInsets.symmetric(vertical: 20),
+      decoration: BoxDecoration(
+          color: AppColors.primaryDarkOrange,
+          borderRadius: BorderRadius.only(bottomRight: Radius.circular(25),bottomLeft: Radius.circular(25))
+      ),
+      child: Center(
+        child: Text(title,style: CustomTextStyle.appBarTextStyle(color: Colors.white),),
+      ),
+    );
+  }
+}
 
 

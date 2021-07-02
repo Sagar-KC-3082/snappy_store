@@ -2,9 +2,12 @@ import 'package:client_app1/configs/constants/app_constants.dart';
 import 'package:client_app1/configs/styles/app_colors.dart';
 import 'package:client_app1/configs/styles/custom_text_style.dart';
 import 'package:client_app1/models/home/snappy_classified/featured_ads_models.dart';
-import 'package:client_app1/views/home/snappy_classified/snappy_classified_category_view.dart';
+import 'package:client_app1/models/home/snappy_classified/snappy_classified_product_detail_model.dart';
+import 'package:client_app1/views/home/snappy_classified/category_view.dart';
+import 'package:client_app1/views/home/snappy_classified/product_detail_view.dart';
 import 'package:client_app1/widgets/custom_inkwell.dart';
 import 'package:client_app1/widgets/custom_text_field.dart';
+import 'package:client_app1/widgets/featured_ads_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -16,6 +19,14 @@ class SnappyClassifiedHomeScreen extends StatelessWidget {
     FeaturedAdsModels(title1: "Lamborgini",title2: "Car is this brand new car",title3: "\$ 890",imageUrl: "assets/images/car2.jpg"),
     FeaturedAdsModels(title1: "Nisan Gixer",title2: "Buy this new car",title3: "\$ 999",imageUrl: "assets/images/car.jpg"),
     FeaturedAdsModels(title1: "Rolls Royce",title2: "This is the brand new car",title3: "\$ 1211",imageUrl: "assets/images/car3.jpg")
+  ];
+
+  final List<SnappyClassifiedProductDetailModel> _snappyClassifiedProductDetailModel = [
+    SnappyClassifiedProductDetailModel(name: "Fords Q6845 Gixer Series",location: "New Mumbai",timePosted: "5 hours ago",adType: "Free  Version",condition: "New",brandName: "Suzuki",transmission: "Latest",yearOFReg: "1989/12/06",features: ["GPS","Anti Brake Lock System","Auto Sleep","GPS","Anti Brake Lock System","Auto Sleep"],description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",locationPhotoUrl: "assets/images/map.png",imageUrl:"assets/images/car3.jpg"),
+    SnappyClassifiedProductDetailModel(name: "Fords Q6845 Gixer Series",location: "New Mumbai",timePosted: "5 hours ago",adType: "Free  Version",condition: "New",brandName: "Suzuki",transmission: "Latest",yearOFReg: "1989/12/06",features: ["GPS","Anti Brake Lock System","Auto Sleep"],description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",locationPhotoUrl: "assets/images/map.png",imageUrl:"assets/images/car2.jpg"),
+    SnappyClassifiedProductDetailModel(name: "Fords Q6845 Gixer Series",location: "New Mumbai",timePosted: "5 hours ago",adType: "Free  Version",condition: "New",brandName: "Suzuki",transmission: "Latest",yearOFReg: "1989/12/06",features: ["GPS","Anti Brake Lock System","Auto Sleep"],description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",locationPhotoUrl: "assets/images/map.png",imageUrl:"assets/images/car.jpg"),
+    SnappyClassifiedProductDetailModel(name: "Fords Q6845 Gixer Series",location: "New Mumbai",timePosted: "5 hours ago",adType: "Free  Version",condition: "New",brandName: "Suzuki",transmission: "Latest",yearOFReg: "1989/12/06",features: ["GPS","Anti Brake Lock System","Auto Sleep","GPS","Anti Brake Lock System","Auto Sleep"],description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",locationPhotoUrl: "assets/images/map.png",imageUrl:"assets/images/car3.jpg"),
+
   ];
 
   final List _categoryList = ["Cars & Bikes","Cars","Other Vehicles","Sports Parts  - Accessories","Commerical Vehicles"];
@@ -110,7 +121,7 @@ class SnappyClassifiedHomeScreen extends StatelessWidget {
                     shrinkWrap: true,
                     itemCount: _featuredAdsList.length,
                     itemBuilder: (context,index){
-                      return FeaturedAdsWidget(featuredAdsModels: _featuredAdsList[index],);
+                      return FeaturedAdsWidget(featuredAdsModels: _featuredAdsList[index],snappyClassifiedProductDetailModel: _snappyClassifiedProductDetailModel[index],);
                     }
                 ))
 
@@ -153,32 +164,6 @@ class CustomImageText extends StatelessWidget {
 }
 
 
-class FeaturedAdsWidget extends StatelessWidget {
 
-  final FeaturedAdsModels featuredAdsModels;
-  FeaturedAdsWidget({this.featuredAdsModels});
-
-  @override
-  Widget build(BuildContext context) {
-    return  Container(
-      width: Get.width*0.3,
-      margin: EdgeInsets.symmetric(horizontal: 15),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          ClipRRect(
-            borderRadius:BorderRadius.circular(12),
-            child: Image.asset(featuredAdsModels.imageUrl,width: Get.width*0.3,height: Get.height*0.13,fit: BoxFit.cover,),
-          ),
-          SizedBox(height: 5,),
-          Text(featuredAdsModels.title1,style: CustomTextStyle.smallBoldTextStyle1(),overflow: TextOverflow.ellipsis,),
-          Text(featuredAdsModels.title2,style: CustomTextStyle.ultraSmallTextStyle(),overflow: TextOverflow.ellipsis,),
-          Text(featuredAdsModels.title3,style: CustomTextStyle.smallBoldTextStyle1(),overflow: TextOverflow.ellipsis,),
-
-        ],
-      ),
-    );
-  }
-}
 
 

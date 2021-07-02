@@ -71,8 +71,8 @@ class ChatDetailScreen extends StatelessWidget {
                   SizedBox(width: 10,),
                   Expanded(
                     child: CustomTextField(
-                      hintText: "      Write a message",
-                      contentPadding: EdgeInsets.zero,
+                      hintText: "Write a message",
+                      contentPadding: EdgeInsets.symmetric(vertical: 0,horizontal: 12),
                       borderRadius: BorderRadius.circular(8),
                     ),
                   ),

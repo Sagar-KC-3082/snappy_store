@@ -5,8 +5,9 @@ import 'package:client_app1/models/home/snappy_classified/featured_ads_models.da
 import 'package:client_app1/models/home/snappy_classified/snappy_classified_category_models.dart';
 import 'package:client_app1/models/home/snappy_classified/snappy_classified_others_account_model.dart';
 import 'package:client_app1/models/home/snappy_classified/snappy_classified_product_detail_model.dart';
-import 'package:client_app1/views/home/snappy_classified/snappy_classified_account/snappy_classified_others_account_view.dart';
+import 'package:client_app1/views/home/snappy_classified/snappy_classified_account/others_account_view.dart';
 import 'package:client_app1/widgets/custom_inkwell.dart';
+import 'package:client_app1/widgets/featured_ads_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -23,6 +24,14 @@ class SnappyClassifiedProductDetailPageScreen extends StatelessWidget {
   final List<SnappyClassifiedOthersAccountModel> snappyClassifiedOthersAccountModel = [
     SnappyClassifiedOthersAccountModel(website:"www.demo.com",imageurl:"assets/images/user.jpg",name: "John Doe",email: "johnny12@gmail.com",phone: "8930872204",activeSince: "October 12",publishedAdsList:[SnappyClassifiedCategoryModels(name: "Audi Q7 for sale",price: "5000",days:"1 days",location: "Delhi,India",imageUrl: "assets/images/car.jpg"),SnappyClassifiedCategoryModels(name: "Tata Nisan Famliy Seater",price: "5000",days:"1 days",location: "Delhi,India",imageUrl: "assets/images/car2.jpg"),SnappyClassifiedCategoryModels(name: "Ferrari Gt453",price: "5000",days:"1 days",location: "Delhi,India",imageUrl: "assets/images/car3.jpg")],aboutMe: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type."),
     SnappyClassifiedOthersAccountModel(website:"www.demo.com",imageurl:"assets/images/user1.png",name: "Vimala Pradhan",email: "vimala78@gmail.com",phone: "5454572204",activeSince: "June 22",publishedAdsList:[SnappyClassifiedCategoryModels(name: "Tata Nisan Famliy Seater",price: "5000",days:"1 days",location: "Delhi,India",imageUrl: "assets/images/car2.jpg"),SnappyClassifiedCategoryModels(name: "Audi Q7 for sale",price: "5000",days:"1 days",location: "Delhi,India",imageUrl: "assets/images/car3.jpg")],aboutMe: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type."),
+  ];
+
+  final List<SnappyClassifiedProductDetailModel> _snappyClassifiedProductDetailModel = [
+    SnappyClassifiedProductDetailModel(name: "Fords Q6845 Gixer Series",location: "New Mumbai",timePosted: "5 hours ago",adType: "Free  Version",condition: "New",brandName: "Suzuki",transmission: "Latest",yearOFReg: "1989/12/06",features: ["GPS","Anti Brake Lock System","Auto Sleep","GPS","Anti Brake Lock System","Auto Sleep"],description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",locationPhotoUrl: "assets/images/map.png",imageUrl:"assets/images/car3.jpg"),
+    SnappyClassifiedProductDetailModel(name: "Fords Q6845 Gixer Series",location: "New Mumbai",timePosted: "5 hours ago",adType: "Free  Version",condition: "New",brandName: "Suzuki",transmission: "Latest",yearOFReg: "1989/12/06",features: ["GPS","Anti Brake Lock System","Auto Sleep"],description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",locationPhotoUrl: "assets/images/map.png",imageUrl:"assets/images/car2.jpg"),
+    SnappyClassifiedProductDetailModel(name: "Fords Q6845 Gixer Series",location: "New Mumbai",timePosted: "5 hours ago",adType: "Free  Version",condition: "New",brandName: "Suzuki",transmission: "Latest",yearOFReg: "1989/12/06",features: ["GPS","Anti Brake Lock System","Auto Sleep"],description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",locationPhotoUrl: "assets/images/map.png",imageUrl:"assets/images/car.jpg"),
+    SnappyClassifiedProductDetailModel(name: "Fords Q6845 Gixer Series",location: "New Mumbai",timePosted: "5 hours ago",adType: "Free  Version",condition: "New",brandName: "Suzuki",transmission: "Latest",yearOFReg: "1989/12/06",features: ["GPS","Anti Brake Lock System","Auto Sleep","GPS","Anti Brake Lock System","Auto Sleep"],description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",locationPhotoUrl: "assets/images/map.png",imageUrl:"assets/images/car3.jpg"),
+
   ];
 
   final SnappyClassifiedProductDetailModel snappyClassifiedProductDetailModel;
@@ -195,7 +204,7 @@ class SnappyClassifiedProductDetailPageScreen extends StatelessWidget {
                           shrinkWrap: true,
                           itemCount: _featuredAdsList.length,
                           itemBuilder: (context,index){
-                            return FeaturedAdsWidget(featuredAdsModels: _featuredAdsList[index],);
+                            return FeaturedAdsWidget(featuredAdsModels: _featuredAdsList[index],snappyClassifiedProductDetailModel: _snappyClassifiedProductDetailModel[index],);
                           }
                       )),
 
@@ -238,30 +247,30 @@ class CustomRow extends StatelessWidget {
 }
 
 
-class FeaturedAdsWidget extends StatelessWidget {
-
-  final FeaturedAdsModels featuredAdsModels;
-  FeaturedAdsWidget({this.featuredAdsModels});
-
-  @override
-  Widget build(BuildContext context) {
-    return  Container(
-      width: Get.width*0.3,
-      margin: EdgeInsets.symmetric(horizontal: 15),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          ClipRRect(
-            borderRadius:BorderRadius.circular(12),
-            child: Image.asset(featuredAdsModels.imageUrl,width: Get.width*0.3,height: Get.height*0.13,fit: BoxFit.cover,),
-          ),
-          SizedBox(height: 5,),
-          Text(featuredAdsModels.title1,style: CustomTextStyle.smallBoldTextStyle1(),overflow: TextOverflow.ellipsis,),
-          Text(featuredAdsModels.title2,style: CustomTextStyle.ultraSmallTextStyle(),overflow: TextOverflow.ellipsis,),
-          Text(featuredAdsModels.title3,style: CustomTextStyle.smallBoldTextStyle1(),overflow: TextOverflow.ellipsis,),
-
-        ],
-      ),
-    );
-  }
-}
+// class FeaturedAdsWidget extends StatelessWidget {
+//
+//   final FeaturedAdsModels featuredAdsModels;
+//   FeaturedAdsWidget({this.featuredAdsModels});
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return  Container(
+//       width: Get.width*0.3,
+//       margin: EdgeInsets.symmetric(horizontal: 15),
+//       child: Column(
+//         crossAxisAlignment: CrossAxisAlignment.start,
+//         children: [
+//           ClipRRect(
+//             borderRadius:BorderRadius.circular(12),
+//             child: Image.asset(featuredAdsModels.imageUrl,width: Get.width*0.3,height: Get.height*0.13,fit: BoxFit.cover,),
+//           ),
+//           SizedBox(height: 5,),
+//           Text(featuredAdsModels.title1,style: CustomTextStyle.smallBoldTextStyle1(),overflow: TextOverflow.ellipsis,),
+//           Text(featuredAdsModels.title2,style: CustomTextStyle.ultraSmallTextStyle(),overflow: TextOverflow.ellipsis,),
+//           Text(featuredAdsModels.title3,style: CustomTextStyle.smallBoldTextStyle1(),overflow: TextOverflow.ellipsis,),
+//
+//         ],
+//       ),
+//     );
+//   }
+// }

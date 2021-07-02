@@ -1,6 +1,6 @@
 import 'package:client_app1/configs/styles/app_colors.dart';
 import 'package:client_app1/controllers/home/snappy_classified/snappy_classified_home_screen_controller.dart';
-import 'package:client_app1/views/home/snappy_classified/snappy_clasified_post_ad.dart';
+import 'package:client_app1/views/home/snappy_classified/post_ad.dart';
 import 'package:client_app1/widgets/custom_inkwell.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
