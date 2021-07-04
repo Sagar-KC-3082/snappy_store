@@ -37,6 +37,34 @@ class CustomAppBarRow extends StatelessWidget {
   }
 }
 
+
+class CustomAppBarRowOnlyText extends StatelessWidget {
+
+  final String title;
+  final GlobalKey<ScaffoldState> globalKey;
+  CustomAppBarRowOnlyText({this.title,this.globalKey});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 5),
+      child: Row(
+        children: [
+          CustomInkWell(
+              onTap: (){
+                globalKey.currentState.openDrawer();
+              },
+              child: Icon(Icons.menu,color: Colors.black,)),
+          Spacer(),
+          Text(title,style: CustomTextStyle.appBarTextStyle(),),
+          Spacer(),
+        ],
+      ),
+    );
+  }
+}
+
+
 class CustomAppBarRowWithCustomIcon extends StatelessWidget {
 
   final String title;

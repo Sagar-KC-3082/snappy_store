@@ -1,5 +1,5 @@
-import 'package:client_app1/views/home/snappy_classified/bottom_navbar.dart';
-import 'package:client_app1/views/home/snappy_services/home_screen_view.dart';
+import 'package:client_app1/views/authentication/pre_login_view.dart';
+import 'package:client_app1/views/home/home_screen_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       defaultTransition: Transition.rightToLeftWithFade,
       debugShowCheckedModeBanner: false,
-      home: SnappyServicesHomeScreen(),
+      home: PreLoginView(),
     );
   }
 }

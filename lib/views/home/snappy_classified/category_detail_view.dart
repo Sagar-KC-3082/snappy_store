@@ -112,7 +112,8 @@ class _FilteringWidgetState extends State<FilteringWidget> {
                           color: Colors.grey.withOpacity(0.1),
                           boxShadow: [
                             BoxShadow(color: Colors.grey.withOpacity(0.2),offset: Offset(5,5),
-                                blurRadius: 10
+                                blurRadius: 5,
+                                spreadRadius: 3
                             ),
                           ]
                       ),

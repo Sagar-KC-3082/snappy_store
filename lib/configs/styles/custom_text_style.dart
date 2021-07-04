@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 
 class CustomTextStyle {
 
-  static boldTextStyle({Color color}){
-    return TextStyle( fontSize:22,fontWeight: FontWeight.w700,color: color==null?AppColors.textDarkColor:color,fontFamily: "Cabin" );
+  static boldTextStyle({Color color,fontFamily}){
+    return TextStyle( fontSize:22,fontWeight: FontWeight.w700,color: color==null?AppColors.textDarkColor:color,fontFamily: fontFamily ?? "Cabin" );
   }
 
   static ultraBoldTextStyle({Color color,double letterSpacing}){

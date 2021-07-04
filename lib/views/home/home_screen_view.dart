@@ -1,7 +1,10 @@
 import 'package:client_app1/configs/constants/app_constants.dart';
 import 'package:client_app1/configs/styles/app_colors.dart';
 import 'package:client_app1/configs/styles/custom_text_style.dart';
+import 'package:client_app1/views/home/snappy_classified/bottom_navbar.dart';
 import 'package:client_app1/views/home/snappy_food/snappy_food_home_screen.dart';
+import 'package:client_app1/views/home/snappy_parcel_and_courier/bottom_nav_screen.dart';
+import 'package:client_app1/views/home/snappy_services/home_screen_view.dart';
 import 'package:client_app1/views/home/snappy_store/snappy_store_home_screen.dart';
 import 'package:client_app1/widgets/custom_inkwell.dart';
 import 'package:client_app1/widgets/custom_rectangular_button.dart';
@@ -38,7 +41,7 @@ class HomeScreen extends StatelessWidget {
 
                 Row(
                   children: [
-                    Expanded(child: InkWell(
+                    Expanded(child: CustomInkWell(
                       onTap: (){Get.to(SnappyStoreHomeScreen());},
                       child: iconWithText("Snappy Store", "assets/images/house.png"),
                     )),
@@ -51,14 +54,23 @@ class HomeScreen extends StatelessWidget {
 
                 Row(
                   children: [
-                    Expanded(child: iconWithText("Snappy Classified", "assets/images/classified.png"),),
-                    Expanded(child: iconWithText("Snappy Services", "assets/images/services.png"),),
+                    Expanded(child: CustomInkWell(
+                      onTap: (){Get.to(SnappyClassifiedBottomNavScreen());},
+                      child: iconWithText("Snappy Classified", "assets/images/classified.png"),
+                    )),
+                    Expanded(child: CustomInkWell(
+                      onTap: (){Get.to(SnappyServicesHomeScreen());},
+                      child: iconWithText("Snappy Services", "assets/images/services.png"),
+                    )),
                   ],
                 ),
 
                 Row(
                   children: [
-                    Expanded(child: iconWithText("Parcel \& Courier", "assets/images/courier.png"),),
+                    Expanded(child: CustomInkWell(
+                      onTap: (){Get.to(ParcelAndCourierBottomNavScreen());},
+                      child: iconWithText("Parcel \& Courier", "assets/images/courier.png"),
+                    )),
                     Expanded(child: Text(""))
                   ],
                 )
