@@ -75,7 +75,7 @@ class _SnappyServicesFilterScreenState extends State<SnappyServicesFilterScreen>
                         title: "Apply Filter",
                         borderRadius: BorderRadius.circular(0),
                         onTap: (){
-                          Get.back();
+                          Navigator.pop(context);
                         },
                       )
 

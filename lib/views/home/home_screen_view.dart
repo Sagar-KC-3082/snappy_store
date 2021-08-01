@@ -1,11 +1,11 @@
 import 'package:client_app1/configs/constants/app_constants.dart';
 import 'package:client_app1/configs/styles/app_colors.dart';
 import 'package:client_app1/configs/styles/custom_text_style.dart';
-import 'package:client_app1/views/home/snappy_classified/bottom_navbar.dart';
-import 'package:client_app1/views/home/snappy_food/snappy_food_home_screen.dart';
+import 'package:client_app1/views/home/snappy_classified/snappy_classified_bottom_nav_bar.dart';
+import 'package:client_app1/views/home/snappy_food/snappy_food_bottom_nav_bar.dart';
 import 'package:client_app1/views/home/snappy_parcel_and_courier/bottom_nav_screen.dart';
 import 'package:client_app1/views/home/snappy_services/home_screen_view.dart';
-import 'package:client_app1/views/home/snappy_store/snappy_store_home_screen.dart';
+import 'package:client_app1/views/home/snappy_store/snappy_store_bottom_nav_bar.dart';
 import 'package:client_app1/widgets/custom_inkwell.dart';
 import 'package:client_app1/widgets/custom_rectangular_button.dart';
 import 'package:flutter/material.dart';
@@ -21,64 +21,83 @@ class HomeScreen extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: AppConstants.screenHorizontalPadding,vertical: AppConstants.screenVerticalPadding),
           child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
+            child: Container(
+              height: Get.height*0.93,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
 
-                Row(
-                  children: [
-                    Icon(Icons.menu),
-                    Spacer(),
-                    Icon(Icons.notifications_none,color: Colors.grey,)
-                  ],
-                ),
-                SizedBox(height: 20,),
+                  Row(
+                    children: [
+                      Icon(Icons.menu),
+                      Spacer(),
+                      Icon(Icons.notifications_none,)
+                    ],
+                  ),
+                  SizedBox(height: 20,),
 
-                homeScreenImageWidget(),
-                SizedBox(height: 30,),
+                  homeScreenImageWidget(),
+                  SizedBox(height: 30,),
 
-                Text(" Category",style: CustomTextStyle.smallBoldTextStyle1(),),
+                  Text(" Category",style: CustomTextStyle.smallBoldTextStyle1(),),
+                  SizedBox(height: 20,),
 
-                Row(
-                  children: [
-                    Expanded(child: CustomInkWell(
-                      onTap: (){Get.to(SnappyStoreHomeScreen());},
-                      child: iconWithText("Snappy Store", "assets/images/house.png"),
-                    )),
-                    Expanded(child: CustomInkWell(
-                      onTap: (){Get.to(SnappyFoodHomeScreen());},
-                      child: iconWithText("Snappy Food", "assets/images/food.png"),
-                    )),
-                  ],
-                ),
+                  Expanded(
+                    child: Row(
+                      children: [
+                        Expanded(child: CustomInkWell(
+                          onTap: (){
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context) => SnappyStoreBottomNavScreen()));
+                            },
+                          child: iconWithText("Snappy Store", "assets/images/fashion.jpg"),
+                        )),
+                        SizedBox(width: 15,),
+                        Expanded(child: CustomInkWell(
+                          onTap: (){
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context) => SnappyFoodBottomNavScreen()));
+                            },
+                          child: iconWithText("Snappy Food", "assets/images/food.jpg"),
+                        )),
+                      ],
+                    ),
+                  ),
 
-                Row(
-                  children: [
-                    Expanded(child: CustomInkWell(
-                      onTap: (){Get.to(SnappyClassifiedBottomNavScreen());},
-                      child: iconWithText("Snappy Classified", "assets/images/classified.png"),
-                    )),
-                    Expanded(child: CustomInkWell(
-                      onTap: (){Get.to(SnappyServicesHomeScreen());},
-                      child: iconWithText("Snappy Services", "assets/images/services.png"),
-                    )),
-                  ],
-                ),
+                  Expanded(
+                    child: Row(
+                      children: [
+                        Expanded(child: CustomInkWell(
+                          onTap: (){
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context) => SnappyClassifiedBottomNavScreen1()));
+                            },
+                          child: iconWithText("Snappy Classified", "assets/images/classified.jpg"),
+                        )),
+                        SizedBox(width: 15,),
+                        Expanded(child: CustomInkWell(
+                          onTap: (){Get.to(SnappyServicesHomeScreen());},
+                          child: iconWithText("Snappy Services", "assets/images/services.jpeg"),
+                        )),
+                      ],
+                    ),
+                  ),
 
-                Row(
-                  children: [
-                    Expanded(child: CustomInkWell(
-                      onTap: (){Get.to(ParcelAndCourierBottomNavScreen());},
-                      child: iconWithText("Parcel \& Courier", "assets/images/courier.png"),
-                    )),
-                    Expanded(child: Text(""))
-                  ],
-                )
+                  Expanded(
+                    child: Row(
+                      children: [
+                        Expanded(child: CustomInkWell(
+                          onTap: (){Get.to(ParcelAndCourierBottomNavScreen());},
+                          child: iconWithText("Parcel \& Courier", "assets/images/parcel100.jpg"),
+                        )),
+                        SizedBox(width: 15,),
+                        Expanded(child: Text(""))
+                      ],
+                    ),
+                  )
 
-                
 
 
-              ],
+
+                ],
+              ),
             ),
           ),
         ),
@@ -116,11 +135,11 @@ class HomeScreen extends StatelessWidget {
   
   iconWithText(String title,String imageUrl){
     return Column(
-      mainAxisSize: MainAxisSize.min,
       children: [
-        SizedBox(height: Get.height*0.05,),
-        Image.asset(imageUrl),
-        SizedBox(height: Get.height*0.02,),
+        Expanded(child: ClipRRect(
+            borderRadius: BorderRadius.circular(12),
+            child: Image.asset(imageUrl,fit: BoxFit.cover,width: Get.width*0.35,))),
+        SizedBox(height: 5),
         Text(title,style: CustomTextStyle.smallBoldTextStyle1(),),
         SizedBox(height: Get.height*0.02,),
 

@@ -40,7 +40,7 @@ class ParcelAndCourierAddLocationScreen extends StatelessWidget {
                 color: AppColors.primaryDarkOrange,
                 maring: EdgeInsets.only(bottom:5),
                 onTap: (){
-                  Get.back();
+                  Navigator.pop(context);
                 },
               ),
             )

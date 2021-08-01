@@ -208,7 +208,7 @@ class AlertMessage extends StatelessWidget {
               CustomInkWell(
                 onTap: (){
                   _controller.alertSeen.value = true;
-                  Get.back();
+                  Navigator.pop(context);
                   },
                 child: Icon(Icons.close),
               )

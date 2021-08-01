@@ -98,7 +98,7 @@ class YourCart extends StatelessWidget {
                 title: "Checkout",
                 color: AppColors.primaryDarkOrange,
                 onTap: (){
-                  Get.to(DeliverToScreen());
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => DeliverToScreen()));
                 },
               )
               

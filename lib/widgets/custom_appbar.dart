@@ -19,7 +19,7 @@ class CustomAppBarRow extends StatelessWidget {
         children: [
           searchBar == null ? Icon(Icons.menu,color: Colors.black,) :
             CustomInkWell(
-                onTap: (){Get.back();},
+                onTap: (){Navigator.pop(context);},
                 child: Icon(Icons.arrow_back_ios,color: Colors.black,size: 18,)),
           Spacer(),
           Text(title,style: CustomTextStyle.appBarTextStyle(),),
@@ -79,7 +79,7 @@ class CustomAppBarRowWithCustomIcon extends StatelessWidget {
       child: Row(
         children: [
           CustomInkWell(
-              onTap: (){Get.back();},
+              onTap: (){Navigator.pop(context);},
               child: Icon(Icons.arrow_back_ios,color: Colors.black,size: 18,)
           ),
           Spacer(),
@@ -113,7 +113,7 @@ class CustomAppBarRowWithCustomIconWithNoSpacing extends StatelessWidget {
         children: [
          hideBackButton==true? Container() :
          CustomInkWell(
-             onTap: (){Get.back();},
+             onTap: (){Navigator.pop(context);},
              child: Icon(Icons.arrow_back_ios,color: Colors.grey,size: 18,)
          ),
           SizedBox(width:5,),

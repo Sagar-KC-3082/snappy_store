@@ -158,7 +158,7 @@ class CustomRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomInkWell(
-      onTap: (){Get.back();},
+      onTap: (){Navigator.pop(context);},
       child: Padding(
         padding: EdgeInsets.symmetric(vertical: 5),
         child: Text(title,style: CustomTextStyle.mediumTextStyle(color: Colors.black),),

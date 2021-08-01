@@ -104,7 +104,7 @@ class EditProfile extends StatelessWidget {
                             _profileController.userFirstName.value = _firstNameController.text;
                             _profileController.userLastName.value = _lastNameController.text;
                           }
-                          Get.back();
+                          Navigator.pop(context);
                         }
                       },
                     )

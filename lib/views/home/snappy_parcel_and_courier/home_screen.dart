@@ -45,65 +45,70 @@ class ParcelHomeScreen extends StatelessWidget {
           length: 4,
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: AppConstants.screenHorizontalPadding,vertical: AppConstants.screenVerticalPadding),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
+            child: SingleChildScrollView(
+              child: Container(
+                height: Get.height*0.93,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
 
-                appBar(),
-                SizedBox(height: 30,),
+                    appBar(),
+                    SizedBox(height: 30,),
 
-                Text("Track order",style: CustomTextStyle.boldTextStyle(fontFamily: "PoppinsBold"),),
-                SizedBox(height: 10,),
-                Text("Enter parcel number",style: CustomTextStyle.ultraSmallBoldTextStyle(),),
-                SizedBox(height: 20,),
+                    Text("Track order",style: CustomTextStyle.boldTextStyle(fontFamily: "PoppinsBold"),),
+                    SizedBox(height: 10,),
+                    Text("Enter parcel number",style: CustomTextStyle.ultraSmallBoldTextStyle(),),
+                    SizedBox(height: 20,),
 
-                Container(
-                  color: Colors.white,
-                  child: CustomTextField(
-                    hintText: "Tracking Number",
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                ),
-                SizedBox(height: 10,),
+                    Container(
+                      color: Colors.white,
+                      child: CustomTextField(
+                        hintText: "Tracking Number",
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                    SizedBox(height: 10,),
 
-                FullWidthButton(
-                  color: AppColors.primaryDarkOrange,
-                  title: "Track Order",
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                SizedBox(height: 20),
+                    FullWidthButton(
+                      color: AppColors.primaryDarkOrange,
+                      title: "Track Order",
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    SizedBox(height: 20),
 
-                TabBar(
-                  indicatorColor: AppColors.primaryDarkOrange,
-                  isScrollable: true,
-                  labelColor: AppColors.primaryDarkOrange,
-                  unselectedLabelColor: Colors.grey,
-                  unselectedLabelStyle: CustomTextStyle.smallTextStyle1(),
-                  labelStyle: CustomTextStyle.smallBoldTextStyle1(color: AppColors.primaryDarkOrange),
-                  tabs: [
-                    Text("All"),
-                    Text("Completed"),
-                    Text("Assigning"),
-                    Text("Cancelled")
+                    TabBar(
+                      indicatorColor: AppColors.primaryDarkOrange,
+                      isScrollable: true,
+                      labelColor: AppColors.primaryDarkOrange,
+                      unselectedLabelColor: Colors.grey,
+                      unselectedLabelStyle: CustomTextStyle.smallTextStyle1(),
+                      labelStyle: CustomTextStyle.smallBoldTextStyle1(color: AppColors.primaryDarkOrange),
+                      tabs: [
+                        Text("All"),
+                        Text("Completed"),
+                        Text("Assigning"),
+                        Text("Cancelled")
+                      ],
+                    ),
+                    SizedBox(height: 10,),
+
+
+                    Expanded(
+                      child: TabBarView(
+                        children: [
+                          CustomListView(),
+                          CustomListView(),
+                          CustomListView(),
+                          CustomListView(),
+
+                        ],
+                      ),
+                    ),
+
+                    SizedBox(height: 15,),
                   ],
                 ),
-                SizedBox(height: 10,),
-
-
-                Expanded(
-                  child: TabBarView(
-                    children: [
-                      CustomListView(),
-                      CustomListView(),
-                      CustomListView(),
-                      CustomListView(),
-
-                    ],
-                  ),
-                ),
-
-                SizedBox(height: 15,),
-              ],
+              ),
             ),
           ),
         ),

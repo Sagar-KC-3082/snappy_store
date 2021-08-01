@@ -19,123 +19,120 @@ class SnappyClassifiedPostAd extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: AppConstants.screenHorizontalPadding,vertical: AppConstants.screenVerticalPadding),
-          child: SingleChildScrollView(
-            child: Container(
-              height: Get.height*0.93,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+          child: Container(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
 
-                  CustomAppBarRowWithCustomIconWithNoSpacing(title: "Post Free Ad",),
-                  SizedBox(height:30,),
+                CustomAppBarRowWithCustomIconWithNoSpacing(title: "Post Free Ad",),
+                SizedBox(height:30,),
 
-                 Expanded(
-                   child: ListView(
-                     shrinkWrap: true,
-                     children: [
-                       Text("Ad Details",style:CustomTextStyle.appBarTextStyle(),),
-                       SizedBox(height: 30,),
+               Expanded(
+                 child: ListView(
+                   shrinkWrap: true,
+                   children: [
+                     Text("Ad Details",style:CustomTextStyle.appBarTextStyle(),),
+                     SizedBox(height: 30,),
 
-                       CustomColumn(title: "Categories",hintText: "Select Categories",dropDownItems: ["Mobile","Bikes","Cars","Houses"],),
-                       CustomColumn(title: "Sub Categories",hintText: "Select Sub Categories",dropDownItems: ["Gaming Phone","Photography Phone","Flashing","Premium","Low Budget Devices"],),
-                       CustomColumnWithTextField(title: "Ad Title",hintText: "Title for your Avertise",),
-                       CustomColumnWithTextField(title: "Description",hintText: "Tell us more about your Advertise",maxLines: 5,),
+                     CustomColumn(title: "Categories",hintText: "Select Categories",dropDownItems: ["Mobile","Bikes","Cars","Houses"],),
+                     CustomColumn(title: "Sub Categories",hintText: "Select Sub Categories",dropDownItems: ["Gaming Phone","Photography Phone","Flashing","Premium","Low Budget Devices"],),
+                     CustomColumnWithTextField(title: "Ad Title",hintText: "Title for your Avertise",),
+                     CustomColumnWithTextField(title: "Description",hintText: "Tell us more about your Advertise",maxLines: 5,),
 
-                       AddImage(),
-                       SizedBox(height: 20,),
+                     AddImage(),
+                     SizedBox(height: 20,),
 
-                       CustomCheckBoxRow(items: ["Private","Professional"],title: "Ad Type",),
-                       SizedBox(height: 10,),
+                     CustomCheckBoxRow(items: ["Private","Professional"],title: "Ad Type",),
+                     SizedBox(height: 10,),
 
-                       CustomColumn(title: "Brand Name",hintText: "Select Brand Name",dropDownItems: ["Nokia","Lenovo","Redmi","Realme","IPhones"],),
-                       CustomColumnWithTextField(title: "Year of Registration",hintText: "Year of Registration",),
+                     CustomColumn(title: "Brand Name",hintText: "Select Brand Name",dropDownItems: ["Nokia","Lenovo","Redmi","Realme","IPhones"],),
+                     CustomColumnWithTextField(title: "Year of Registration",hintText: "Year of Registration",),
 
-                       CustomCheckBoxRow(items: ["Automatic","Manual"],title: "Transmission",),
-                       SizedBox(height: 10,),
+                     CustomCheckBoxRow(items: ["Automatic","Manual"],title: "Transmission",),
+                     SizedBox(height: 10,),
 
-                       CustomSquareCheckBoxColumn(title: "Features",items: ["GPS","ABS","Air Condition","Security System"],),
-                       SizedBox(height: 20,),
+                     CustomSquareCheckBoxColumn(title: "Features",items: ["GPS","ABS","Air Condition","Security System"],),
+                     SizedBox(height: 20,),
 
-                       Text("Price",style: CustomTextStyle.boldMediumTextStyle(),),
-                       SizedBox(height: 10,),
-                       Row(
-                         children: [
-                           Container(
-                             decoration: BoxDecoration(
-                               borderRadius: BorderRadius.circular(12),
-                               border: Border.all(color: Colors.grey.withOpacity(0.2)),
-                             ),
-                             padding: EdgeInsets.symmetric(vertical: 15,horizontal: 8),
-                             child: Row(
-                               children: [
-                                 Text("Price",style: CustomTextStyle.smallBoldTextStyle1(),),
-                                 SizedBox(width: 10,),
-                                 Container(width:50,height:30,child: TextField(
-                                   decoration: InputDecoration(border: InputBorder.none),
-                                 )),
-                                 SizedBox(width: 10,),
-                                 Icon(Icons.attach_money_outlined,size: 20,)
-                               ],
-                             ),
+                     Text("Price",style: CustomTextStyle.boldMediumTextStyle(),),
+                     SizedBox(height: 10,),
+                     Row(
+                       children: [
+                         Container(
+                           decoration: BoxDecoration(
+                             borderRadius: BorderRadius.circular(12),
+                             border: Border.all(color: Colors.grey.withOpacity(0.2)),
                            ),
-                           SizedBox(
-                               height: 12,
-                               child: CustomSquareCheckBox()),
-                           Text("Negotiate",style: CustomTextStyle.smallTextStyle1(color: Colors.grey),)
-                         ],
-                       ),
-                       SizedBox(height: 30,),
+                           padding: EdgeInsets.symmetric(vertical: 15,horizontal: 8),
+                           child: Row(
+                             children: [
+                               Text("Price",style: CustomTextStyle.smallBoldTextStyle1(),),
+                               SizedBox(width: 10,),
+                               Container(width:50,height:30,child: TextField(
+                                 decoration: InputDecoration(border: InputBorder.none),
+                               )),
+                               SizedBox(width: 10,),
+                               Icon(Icons.attach_money_outlined,size: 20,)
+                             ],
+                           ),
+                         ),
+                         SizedBox(
+                             height: 12,
+                             child: CustomSquareCheckBox()),
+                         Text("Negotiate",style: CustomTextStyle.smallTextStyle1(color: Colors.grey),)
+                       ],
+                     ),
+                     SizedBox(height: 30,),
 
 
-                       Text("Contact Information",style:CustomTextStyle.appBarTextStyle(),),
-                       SizedBox(height: 30,),
+                     Text("Contact Information",style:CustomTextStyle.appBarTextStyle(),),
+                     SizedBox(height: 30,),
 
-                       CustomColumnWithTextField(title: "Mobile Number",hintText: "Enter Mobile Number",),
-                       CustomColumn(title: "City",hintText: "Select City",dropDownItems: ["Delhi","Mumbai","Lucknow","Kanpur","Patna","Sikkim"],),
+                     CustomColumnWithTextField(title: "Mobile Number",hintText: "Enter Mobile Number",),
+                     CustomColumn(title: "City",hintText: "Select City",dropDownItems: ["Delhi","Mumbai","Lucknow","Kanpur","Patna","Sikkim"],),
 
-                       Text("Location",style: CustomTextStyle.boldMediumTextStyle(),),
-                       SizedBox(height: 10,),
-                       Image.asset("assets/images/map.png",height: Get.height*0.25,width: Get.width,fit: BoxFit.cover,),
-                       SizedBox(height: 20,),
+                     Text("Location",style: CustomTextStyle.boldMediumTextStyle(),),
+                     SizedBox(height: 10,),
+                     Image.asset("assets/images/map.png",height: Get.height*0.25,width: Get.width,fit: BoxFit.cover,),
+                     SizedBox(height: 20,),
 
-                       CustomColumnWithTextField(title: "Tag",hintText: "Enter tag Separated by Comma",),
-                       SizedBox(height: 20,),
+                     CustomColumnWithTextField(title: "Tag",hintText: "Enter tag Separated by Comma",),
+                     SizedBox(height: 20,),
 
-                       Text("Make your Ad Premium (Optional)",style: CustomTextStyle.boldMediumTextStyle(),),
-                       SizedBox(height: 15,),
+                     Text("Make your Ad Premium (Optional)",style: CustomTextStyle.boldMediumTextStyle(),),
+                     SizedBox(height: 15,),
 
-                       Row(
-                         children: [
-                           CustomCheckBox(),
-                           SizedBox(width: 10,),
-                           Text("Free Ad",style: CustomTextStyle.smallTextStyle1(color: Colors.grey),)
-                         ],
-                       ),
-                       SizedBox(height: 5,),
-                       Text("Your Ad will go live after check by reviewer",style: CustomTextStyle.ultraSmallTextStyle(color: Colors.grey),),
-                       SizedBox(height: 10,),
-                       Row(
-                         children: [
-                           CustomCheckBox(),
-                           SizedBox(width: 10,),
-                           Text("Premium",style: CustomTextStyle.smallTextStyle1(color: Colors.grey),),
-                           Spacer(),
-                           Text("Recommended",style: CustomTextStyle.ultraSmallBoldTextStyle(),)
-                         ],
-                       ),
+                     Row(
+                       children: [
+                         CustomCheckBox(),
+                         SizedBox(width: 10,),
+                         Text("Free Ad",style: CustomTextStyle.smallTextStyle1(color: Colors.grey),)
+                       ],
+                     ),
+                     SizedBox(height: 5,),
+                     Text("Your Ad will go live after check by reviewer",style: CustomTextStyle.ultraSmallTextStyle(color: Colors.grey),),
+                     SizedBox(height: 10,),
+                     Row(
+                       children: [
+                         CustomCheckBox(),
+                         SizedBox(width: 10,),
+                         Text("Premium",style: CustomTextStyle.smallTextStyle1(color: Colors.grey),),
+                         Spacer(),
+                         Text("Recommended",style: CustomTextStyle.ultraSmallBoldTextStyle(),)
+                       ],
+                     ),
 
-                       SizedBox(height: 30,),
-                       FullWidthButton(
-                         color: AppColors.primaryDarkOrange,
-                         borderRadius: BorderRadius.circular(8),
-                         title: "Post",
-                         onTap: (){Get.back();},
-                       )
-                     ],
-                   ),
-                 )
-                ],
-              ),
+                     SizedBox(height: 30,),
+                     FullWidthButton(
+                       color: AppColors.primaryDarkOrange,
+                       borderRadius: BorderRadius.circular(8),
+                       title: "Post",
+                       onTap: (){Navigator.pop(context);},
+                     )
+                   ],
+                 ),
+               )
+              ],
             ),
           ),
         ),

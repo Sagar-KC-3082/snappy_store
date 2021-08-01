@@ -39,7 +39,7 @@ class SnappyClassifiedCategoryScreen extends StatelessWidget {
                   itemBuilder: (context,index){
                     return CustomInkWell(
                       onTap: (){
-                        Get.to(SnappyClassifiedCategoryDetailScreen(title: categoryList[index],snappyClassifiedItems: _snappyClassifiedItems,));
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => SnappyClassifiedCategoryDetailScreen(title: categoryList[index],snappyClassifiedItems: _snappyClassifiedItems,)));
                       },
                       child: Padding(
                         padding: const EdgeInsets.symmetric(vertical: 10),

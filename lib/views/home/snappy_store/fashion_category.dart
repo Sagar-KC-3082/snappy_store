@@ -39,8 +39,8 @@ class FashionCategory extends StatelessWidget {
                   itemBuilder: (context,index){
                     return CustomInkWell(
                       onTap: (){
-                        Get.to(PopularStoreWidget(itemList: storeList,));
-                      },
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => PopularStoreWidget(itemList: storeList,)));
+                        },
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 15),
                         child: Text(_fashionCategory[index],style: CustomTextStyle.mediumTextStyle(),),

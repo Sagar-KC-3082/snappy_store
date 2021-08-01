@@ -15,7 +15,9 @@ class CustomStoreTitleWidget extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return CustomInkWell(
-      onTap: (){Get.to(StoreDetailWidget(storeDetailModel: storeDetailModel,));},
+      onTap: (){
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => StoreDetailWidget(storeDetailModel: storeDetailModel,)));
+        },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

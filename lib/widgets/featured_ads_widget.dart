@@ -18,7 +18,7 @@ class FeaturedAdsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return  CustomInkWell(
       onTap: (){
-        Get.back();
+        Navigator.pop(context);
         Get.to(SnappyClassifiedProductDetailPageScreen(snappyClassifiedProductDetailModel:snappyClassifiedProductDetailModel));
       },
       child: Container(

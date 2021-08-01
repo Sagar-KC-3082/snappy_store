@@ -18,7 +18,9 @@ class CustomCategoryTextAndImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomInkWell(
-      onTap: (){Get.to(PopularStoreWidget(itemList: storeList,));},
+      onTap: (){
+        Navigator.push(context,MaterialPageRoute(builder: (context){return PopularStoreWidget(itemList: storeList,);}));
+        },
       child: Container(
         margin: EdgeInsets.symmetric(vertical: 12),
         padding: EdgeInsets.only(left: 20),
@@ -60,11 +62,15 @@ class CustomCategoryTextAndImageForFashion extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomInkWell(
-      onTap: (){
-        title == "Shoes" || title == "Accessories" ? Get.to(PopularStoreWidget(
-          itemList: storeList,
-        )):
-        Get.to(FashionCategory(title: title,storeList: storeList,));},
+      onTap: () {
+        title == "Shoes" || title == "Accessories" ?
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return PopularStoreWidget(itemList: storeList,);
+        })) :
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return FashionCategory(title: title, storeList: storeList,);
+        }));
+      },
       child: Container(
         margin: EdgeInsets.symmetric(vertical: 10),
         padding: EdgeInsets.only(left: 20),

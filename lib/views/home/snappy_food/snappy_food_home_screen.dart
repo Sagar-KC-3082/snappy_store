@@ -23,7 +23,9 @@ class SnappyFoodHomeScreen extends StatelessWidget {
   imageWithText(String imageUrl,String title){
     return Row(
       children: [
-        Image.asset(imageUrl,height:50,width: Get.width*0.15,fit: BoxFit.contain,),
+        ClipRRect(
+            borderRadius: BorderRadius.circular(12),
+            child: Image.asset(imageUrl,height:70,width: Get.width*0.25,fit: BoxFit.fill,)),
         SizedBox(width: 15,),
         Text(title,style: CustomTextStyle.smallBoldTextStyle1(color: Colors.black),)
       ],
@@ -79,13 +81,17 @@ class SnappyFoodHomeScreen extends StatelessWidget {
               SizedBox(height: 40),
 
               CustomInkWell(
-                onTap: (){Get.to(FoodAndBeveragesView());},
-                child: imageWithText("assets/images/house.png","Food & Beverage"),
+                onTap: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => FoodAndBeveragesView()));
+                  },
+                child: imageWithText("assets/images/food_beverage.jpg","Food & Beverage"),
               ),
               SizedBox(height: 30,),
               CustomInkWell(
-                onTap: (){Get.to(FarmersMarketView());},
-                child:imageWithText("assets/images/house.png","Farmer's Market"),
+                onTap: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => FarmersMarketView()));
+                  },
+                child:imageWithText("assets/images/farmer_market.jpg","Farmer's Market"),
               )
             ],
           ),

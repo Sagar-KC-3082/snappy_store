@@ -119,7 +119,7 @@ class SnappyClassifiedProductDetailPageScreen extends StatelessWidget {
 
                   CustomInkWell(
                     onTap: (){
-                      Get.to(SnappyClassifiedOthersAccountScreen(snappyClassifiedOthersAccountModel: snappyClassifiedOthersAccountModel[0],));
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => SnappyClassifiedOthersAccountScreen(snappyClassifiedOthersAccountModel: snappyClassifiedOthersAccountModel[0],)));
                     },
                     child: Row(
                       children: [
@@ -158,8 +158,8 @@ class SnappyClassifiedProductDetailPageScreen extends StatelessWidget {
 
                   CustomInkWell(
                     onTap: (){
-                      Get.to(SnappyClassifiedOthersAccountScreen(snappyClassifiedOthersAccountModel: snappyClassifiedOthersAccountModel[1],));
-                    },
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => SnappyClassifiedOthersAccountScreen(snappyClassifiedOthersAccountModel: snappyClassifiedOthersAccountModel[1],)));
+                      },
                     child: Row(
                       children: [
                         CircleAvatar(

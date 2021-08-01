@@ -24,10 +24,18 @@ class AccountHomeScreen extends StatelessWidget {
               CustomAppBarRowWithCustomIconWithNoSpacing(title: "Account",hideBackButton: true,),
               SizedBox(height: 30,),
 
-              CustomImageTextRowWidget(imageUrl: "assets/images/user.png",title: "Profile",ontap: (){Get.to(ProfileScreen());},),
-              CustomImageTextRowWidget(imageUrl: "assets/images/bag.png",title: "Order",ontap: (){Get.to(OrderHomeScreen());},),
-              CustomImageTextRowWidget(imageUrl: "assets/images/location.png",title: "Address",ontap: (){Get.to(DeliverToScreen());},),
-              CustomImageTextRowWidget(imageUrl: "assets/images/credit_card.png",title: "Payment",ontap: (){Get.to(PaymentMethod());},),
+              CustomImageTextRowWidget(imageUrl: "assets/images/user.png",title: "Profile",ontap: (){
+                Navigator.push(context, MaterialPageRoute(builder:(context){return ProfileScreen();}));
+               },),
+              CustomImageTextRowWidget(imageUrl: "assets/images/bag.png",title: "Order",ontap: (){
+                Navigator.push(context, MaterialPageRoute(builder:(context){return OrderHomeScreen();}));
+                },),
+              CustomImageTextRowWidget(imageUrl: "assets/images/location.png",title: "Address",ontap: (){
+                Navigator.push(context, MaterialPageRoute(builder:(context){return DeliverToScreen();}));
+                },),
+              CustomImageTextRowWidget(imageUrl: "assets/images/credit_card.png",title: "Payment",ontap: (){
+                Navigator.push(context, MaterialPageRoute(builder:(context){return PaymentMethod();}));
+                },),
 
             ],
           ),

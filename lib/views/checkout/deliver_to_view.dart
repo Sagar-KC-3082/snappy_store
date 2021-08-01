@@ -24,7 +24,13 @@ class DeliverToScreen extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: AppConstants.screenHorizontalPadding,vertical: AppConstants.screenVerticalPadding),
             child: Column(
               children: [
-                CustomAppBarRowWithCustomIconWithNoSpacing(title: "Deliver to",icon: Icon(Icons.add,color: Colors.blue,),onTap: (){Get.to(AddAddressView());},),
+                CustomAppBarRowWithCustomIconWithNoSpacing(
+                  title: "Deliver to",
+                  icon: Icon(Icons.add,color: Colors.blue,),
+                  onTap: (){
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => AddAddressView()));
+                  },
+                ),
                 SizedBox(height: 20,),
 
                 Expanded(
@@ -56,7 +62,7 @@ class DeliverToScreen extends StatelessWidget {
                                       children: [
                                         CustomInkWell(
                                           onTap:(){
-                                            Get.to(AddAddressView());
+                                            Navigator.of(context).push(MaterialPageRoute(builder: (context) => AddAddressView()));
                                           },
                                           child: Container(
                                             padding: EdgeInsets.symmetric(horizontal: 25,vertical: 12),
@@ -70,7 +76,7 @@ class DeliverToScreen extends StatelessWidget {
                                         SizedBox(width: 15,),
                                         CustomInkWell(
                                           onTap: (){
-                                            Get.to(DeleteAddressConfirmationScreen(index: index,));
+                                            Navigator.of(context).push(MaterialPageRoute(builder: (context) => DeleteAddressConfirmationScreen()));
                                           },
                                           child: Icon(Icons.delete_outline,color: Colors.grey,size: 25,),
                                         )
@@ -90,7 +96,9 @@ class DeliverToScreen extends StatelessWidget {
                   color: AppColors.primaryDarkOrange,
                   title: "Next",
                   borderRadius: BorderRadius.circular(5),
-                  onTap: (){Get.to(PaymentMethod());},
+                  onTap: (){
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => PaymentMethod()));
+                    },
                 )
 
               ],

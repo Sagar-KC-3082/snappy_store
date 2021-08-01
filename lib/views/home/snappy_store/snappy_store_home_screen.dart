@@ -12,7 +12,7 @@ import 'package:get/get.dart';
 
 class SnappyStoreHomeScreen extends StatelessWidget {
 
-  final List _snappyStoreCategoryList = [{"name":"Fashion","imageUrl":"assets/images/cloth.png"},{"name":"Sports","imageUrl":"assets/images/cloth.png"},{"name":"Pharmacy","imageUrl":"assets/images/cloth.png"},{"name":"Electronic & PC Hub","imageUrl":"assets/images/cloth.png"},{"name":"Hardware","imageUrl":"assets/images/cloth.png"},{"name":"Agricultural Products","imageUrl":"assets/images/cloth.png"},{"name":"Pet Supplies","imageUrl":"assets/images/cloth.png"},{"name":"Gift Gallery","imageUrl":"assets/images/cloth.png"},];
+  final List _snappyStoreCategoryList = [{"name":"Fashion","imageUrl":"assets/images/clothes.png"},{"name":"Sports","imageUrl":"assets/images/sports.jpg"},{"name":"Pharmacy","imageUrl":"assets/images/pharmacy.jpg"},{"name":"Electronic & PC Hub","imageUrl":"assets/images/electronics.jpg"},{"name":"Hardware","imageUrl":"assets/images/hardwares.jpg"},{"name":"Agricultural Products","imageUrl":"assets/images/agro.jpg"},{"name":"Pet Supplies","imageUrl":"assets/images/pets.jpg"},{"name":"Gift Gallery","imageUrl":"assets/images/gifts.jpg"},];
   final List<List<StoreDetailModel>> _storeList = [
     [],
     [StoreDetailModel(storeName: "Balaji Store",category: "Sports",stars: "69",rating: "10",detail:null,imageList: ["assets/images/sports1.jpg","assets/images/sports4.jpg","assets/images/sports3.jpg"],menuCategories: ["Bat","Ball","Stump","Helmet","Pad","Gloves"],items: [{"imageUrl":"assets/images/sports5.jpg","title1":"Mrf Bat","title2":"Heavy Wood","price":"99"},{"imageUrl":"assets/images/sports6.jpg","title1":"Cough Syrup","title2":"500 mg Medicine","price":"11"}]),StoreDetailModel(storeName: "New Sports Corner",category: "Sports",stars: "69",rating: "453",detail:null,imageList: ["assets/images/sports2.jpg","assets/images/sports4.jpg","assets/images/sports3.jpg"],menuCategories: ["Bat","Ball","Stump","Helmet","Pad","Gloves"],items: [{"imageUrl":"assets/images/sports5.jpg","title1":"Mrf Bat","title2":"Heavy Wood","price":"99"},{"imageUrl":"assets/images/sports6.jpg","title1":"Addidas Pad","title2":"Classy sports","price":"39"}]),StoreDetailModel(storeName: "MRF Sports",category: "Sports",stars: "69",rating: "54",detail:null,imageList: ["assets/images/sports3.jpg","assets/images/sports4.jpg","assets/images/sports3.jpg"],menuCategories: ["Bat","Ball","Stump","Helmet","Pad","Gloves"],items: [{"imageUrl":"assets/images/sports5.jpg","title1":"Mrf Bat","title2":"Heavy Wood","price":"99"},{"imageUrl":"assets/images/sports6.jpg","title1":"Addidas Pad","title2":"Classy sports","price":"39"}]),StoreDetailModel(storeName: "Addidas Sports",category: "Sports",stars: "69",rating: "23",detail:null,imageList: ["assets/images/sports4.jpg","assets/images/sports4.jpg","assets/images/sports3.jpg"],menuCategories: ["Bat","Ball","Stump","Helmet","Pad","Gloves"],items: [{"imageUrl":"assets/images/sports5.jpg","title1":"Mrf Bat","title2":"Heavy Wood","price":"99"},{"imageUrl":"assets/images/sports6.jpg","title1":"Addidas Pad","title2":"Classy sports","price":"39"}]),],
@@ -83,13 +83,14 @@ class _CustomTextIconColumnState extends State<CustomTextIconColumn> {
         });
         widget.title == "Fashion" ?
               await Future.delayed(Duration(milliseconds: 200),(){
-                Get.to(FashionScreen(),transition: Transition.rightToLeftWithFade);
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => FashionScreen()));
                 setState(() {
                   isTapped = !isTapped;
                 });
               }) :
               await Future.delayed(Duration(milliseconds: 200),(){
-                Get.to(PopularStoreWidget(itemList: widget.storeList,),transition: Transition.rightToLeftWithFade);
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => PopularStoreWidget(itemList: widget.storeList)));
+                // Get.to(transition: Transition.rightToLeftWithFade);
                 setState(() {
                   isTapped = !isTapped;
                 });
@@ -98,14 +99,10 @@ class _CustomTextIconColumnState extends State<CustomTextIconColumn> {
       },
       child: Column(
         children: [
-              Container(
-                  padding: EdgeInsets.all(25),
-                  decoration: BoxDecoration(
-                      color: isTapped ? Colors.blue : Colors.transparent,
-                      shape: BoxShape.circle,
-                      border: Border.all(color: Color(0xFFEBF0FF))
-                  ),
-                  child: Image.asset(widget.imageUrl,fit: BoxFit.cover,)),
+          CircleAvatar(
+            radius: 30,
+            backgroundImage: AssetImage(widget.imageUrl),
+          ),
               SizedBox(height: 10,),
               Text(widget.title,style: CustomTextStyle.smallBoldTextStyle1(color: Colors.grey),textAlign: TextAlign.center,)
         ],

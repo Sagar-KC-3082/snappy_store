@@ -3,7 +3,6 @@ import 'package:client_app1/configs/styles/app_colors.dart';
 import 'package:client_app1/configs/styles/custom_text_style.dart';
 import 'package:client_app1/models/home/snappy_classified/snappy_classified_others_account_model.dart';
 import 'package:client_app1/models/home/snappy_classified/snappy_classified_product_detail_model.dart';
-import 'package:client_app1/views/home/snappy_classified/category_detail_view.dart';
 import 'package:client_app1/widgets/custom_appbar.dart';
 import 'package:client_app1/widgets/snappy_classified_category_widget.dart';
 import 'package:flutter/material.dart';

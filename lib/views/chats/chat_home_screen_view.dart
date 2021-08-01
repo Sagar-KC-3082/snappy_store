@@ -44,7 +44,7 @@ class ChatHomeScreen extends StatelessWidget {
 
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: AppConstants.screenHorizontalPadding),
-                child: CustomAppBarRowWithCustomIconWithNoSpacing(title: "My Chats",icon: Icon(Icons.more_vert),),
+                child: CustomAppBarRowWithCustomIconWithNoSpacing(title: "My Chats",icon: Icon(Icons.more_vert),hideBackButton: true,),
               ),
               SizedBox(height: Get.height*0.04,),
 

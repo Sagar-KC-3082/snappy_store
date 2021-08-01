@@ -145,7 +145,8 @@ class CustomImageText extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomInkWell(
       onTap: (){
-        Get.to(SnappyClassifiedCategoryScreen(title: title,categoryList: categoryList,));
+        Navigator.push(context,MaterialPageRoute(builder:(context){return SnappyClassifiedCategoryScreen(title: title,categoryList: categoryList,);}));
+        // Get.to(SnappyClassifiedCategoryScreen(title: title,categoryList: categoryList,));
       },
       child: Padding(
         padding: const EdgeInsets.all(8.0),

@@ -18,8 +18,8 @@ class ChatHomeScreenWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomInkWell(
       onTap: (){
-        Get.to(ChatDetailScreen(messageList: messageList,chatListModel: chatListModel,));
-      },
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => ChatDetailScreen(messageList: messageList,chatListModel: chatListModel,)));
+        },
       child: Container(
         margin: EdgeInsets.symmetric(vertical: 5),
         padding: EdgeInsets.symmetric(horizontal: 12,vertical: 8),

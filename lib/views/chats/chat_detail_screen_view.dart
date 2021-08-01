@@ -30,7 +30,7 @@ class ChatDetailScreen extends StatelessWidget {
               child: Row(
                 children: [
                   CustomInkWell(
-                      onTap: (){Get.back();},
+                      onTap: (){Navigator.pop(context);},
                       child: Icon(Icons.arrow_back_ios,color: Colors.grey,size: 18,)
                   ),
                   SizedBox(width:5,),

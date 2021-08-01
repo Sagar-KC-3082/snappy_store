@@ -15,7 +15,7 @@ class SnappyClassifiedNotificationView extends StatelessWidget {
           child: Column(
             children: [
 
-              CustomAppBarRowWithCustomIconWithNoSpacing(title: "Notifications",icon: Icon(Icons.notifications_active),),
+              CustomAppBarRowWithCustomIconWithNoSpacing(title: "Notifications",icon: Icon(Icons.notifications_active),hideBackButton: true,),
               SizedBox(height:30),
 
               Expanded(

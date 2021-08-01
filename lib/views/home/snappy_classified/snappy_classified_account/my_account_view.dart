@@ -6,7 +6,6 @@ import 'package:client_app1/views/home/snappy_classified/snappy_classified_accou
 import 'package:client_app1/widgets/custom_appbar.dart';
 import 'package:client_app1/widgets/custom_inkwell.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class SnappyClassifiedMyAccountView extends StatelessWidget {
 
@@ -22,7 +21,7 @@ class SnappyClassifiedMyAccountView extends StatelessWidget {
           child: ListView(
             children: [
 
-              CustomAppBarRowWithCustomIconWithNoSpacing(title: "My Account",),
+              CustomAppBarRowWithCustomIconWithNoSpacing(title: "My Account",hideBackButton: true,),
               SizedBox(height:30,),
 
               Row(
@@ -69,7 +68,9 @@ class CustomRowContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomInkWell(
       onTap: (){
-        title != "Account Settings" && title != "Logout" ? Get.to(SnappyClassifiedAdListScreen(title: title,snappyClassifiedItems: snappyClassifiedItems,)) : print("hy");
+        title != "Account Settings" && title != "Logout" ?
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => SnappyClassifiedAdListScreen(title: title,snappyClassifiedItems: snappyClassifiedItems,))):
+        print("hy");
       },
       child: Column(
         children: [

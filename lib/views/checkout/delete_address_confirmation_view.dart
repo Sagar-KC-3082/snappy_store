@@ -40,7 +40,7 @@ class DeleteAddressConfirmationScreen extends StatelessWidget {
               title: "Cancel",
               borderRadius: BorderRadius.circular(5),
               border: Border.all(color: Colors.grey.withOpacity(0.5)),
-              onTap: (){Get.back();},
+              onTap: (){Navigator.pop(context);},
             )
           ],
         ),

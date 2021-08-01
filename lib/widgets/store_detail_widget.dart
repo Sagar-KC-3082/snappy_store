@@ -82,7 +82,9 @@ class StoreDetailWidget extends StatelessWidget {
                       Text("Menu",style: CustomTextStyle.appBarTextStyle(),),
                       SizedBox(width: 5,),
                       CustomInkWell(
-                          onTap: (){Get.to(SearchScreen());},
+                          onTap: (){
+                            Navigator.push(context,MaterialPageRoute(builder: (context){return SearchScreen();}));
+                            },
                           child: Icon(Icons.search,color: Colors.grey,)),
                       Spacer(),
                       Text("12 Items",style: CustomTextStyle.smallTextStyle1(color: Colors.grey),),
@@ -124,7 +126,9 @@ class StoreDetailWidget extends StatelessWidget {
                     children: [
                       Spacer(),
                       CustomInkWell(
-                        onTap: (){Get.to(YourCart());},
+                        onTap: (){
+                          Navigator.push(context,MaterialPageRoute(builder: (context){return YourCart();}));
+                          },
                         child: Badge(
                             padding: EdgeInsets.all(10),
                             badgeColor: Colors.white,
