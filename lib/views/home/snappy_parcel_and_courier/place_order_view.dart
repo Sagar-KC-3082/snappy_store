@@ -80,8 +80,8 @@ class ParcelAndCourierPlaceOrderScreen extends StatelessWidget {
                           padding: EdgeInsets.symmetric(vertical:15,horizontal: 15),
                           borderRadius: BorderRadius.circular(60),
                           onTap: (){
-                            Get.to(ParcelAndCourierAddLocationScreenAddDateTimeScreen());
-                          },
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context) => ParcelAndCourierAddLocationScreenAddDateTimeScreen()));
+                            },
                         )
                       ],
                     ),
@@ -247,7 +247,9 @@ class CustomAddlocationWidget extends StatelessWidget {
           SizedBox(width: 10,),
           Expanded(child:Text(location,style: CustomTextStyle.smallTextStyle1(),)),
           CustomInkWell(
-            onTap: (){Get.to(ParcelAndCourierAddLocationScreen());},
+            onTap: (){
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) =>ParcelAndCourierAddLocationScreen()));
+              },
             child: Container(
               decoration: BoxDecoration(shape: BoxShape.circle,color: AppColors.primaryDarkBlue),
               padding: EdgeInsets.all(3),

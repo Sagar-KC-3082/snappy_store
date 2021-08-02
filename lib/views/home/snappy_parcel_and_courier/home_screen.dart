@@ -144,8 +144,8 @@ class ParcelAndCourierTabWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomInkWell(
       onTap: (){
-        Get.to(TrackOrderViewLocationScreen());
-      },
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => TrackOrderViewLocationScreen()));
+        },
       child: Container(
         height: 140,
         padding: EdgeInsets.only(left: 15),

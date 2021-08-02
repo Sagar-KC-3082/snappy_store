@@ -113,7 +113,7 @@ class _SignUpViewState extends State<SignUpView> {
                   FullWidthButton(color: AppColors.primaryDarkBlue,title: "SIGN UP",onTap: (){
                     FocusScope.of(context).unfocus();
                     if(_formKey2.currentState.validate()){
-                      Get.to(HomeScreen());
+                      Navigator.push(context, MaterialPageRoute(builder:(context){return HomeScreen();}));
                     }
                   },),
                   SizedBox(height: Get.height*0.05,),
@@ -124,7 +124,9 @@ class _SignUpViewState extends State<SignUpView> {
                       children: [
                         Text("Already have an account?",style: CustomTextStyle.mediumTextStyle()),
                         CustomInkWell(
-                            onTap: (){Get.to(SignInView());},
+                            onTap: (){
+                              Navigator.push(context, MaterialPageRoute(builder:(context){return SignInView();}));
+                              },
                             child: Text(" Sign In",style: CustomTextStyle.boldMediumTextStyle())),
 
                       ],

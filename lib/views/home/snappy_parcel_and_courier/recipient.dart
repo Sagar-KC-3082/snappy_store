@@ -37,8 +37,8 @@ class ParcelAndCourierRecipient extends StatelessWidget {
                       title: "Next",
                       onTap: (){
                         FocusScope.of(context).unfocus();
-                        Get.to(ParcelAndCourierOrderDetails());
-                      },
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context) =>ParcelAndCourierOrderDetails()));
+                        },
                     )
 
                   ],

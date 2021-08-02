@@ -27,8 +27,8 @@ class CustomAppBarRow extends StatelessWidget {
           searchBar == null ? Icon(Icons.notifications_none,color: Colors.grey,) :
               CustomInkWell(
                 onTap: (){
-                  Get.to(SearchScreen());
-                },
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) =>SearchScreen()));
+                  },
                 child: Icon(Icons.search),
               )
         ],

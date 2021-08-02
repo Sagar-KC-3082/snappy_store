@@ -109,8 +109,8 @@ class TaskerDetailScreen extends StatelessWidget {
                       maring: EdgeInsets.symmetric(vertical: 10,horizontal: 0),
                       padding: EdgeInsets.symmetric(vertical: 18),
                       onTap: (){
-                        Get.to(ConfrimTaskerScreen(imageUrl: taskerDetail.imageUrl,name: taskerDetail.name,));
-                      },
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => ConfrimTaskerScreen(imageUrl: taskerDetail.imageUrl,name: taskerDetail.name,)));
+                        },
                     ),
                   ],
                 ),

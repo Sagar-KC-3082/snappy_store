@@ -47,8 +47,8 @@ class ParcelAndCourierOrderSize extends StatelessWidget {
                 color: AppColors.primaryDarkOrange,
                 title: "Next",
                 onTap: (){
-                  Get.to(ParcelAndCourierRecipient());
-                },
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) =>ParcelAndCourierRecipient()));
+                  },
               )
             ],
           ),

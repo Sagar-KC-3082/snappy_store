@@ -161,16 +161,16 @@ class OrderDetailsAfterOrder extends StatelessWidget {
                       title: "Track Order",
                       onTap: (){
                         FocusScope.of(context).unfocus();
-                        Get.to(ParcelHomeScreen   ());
-                      },
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => ParcelHomeScreen()));
+                        },
                     ),
                     FullWidthButton(
                       title: "Order Again",
                       border: Border.all(color: Colors.grey),
                       onTap: (){
                         FocusScope.of(context).unfocus();
-                        Get.to(ParcelAndCourierPlaceOrderScreen());
-                      },
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context) =>ParcelAndCourierPlaceOrderScreen()));
+                        },
                     )
                   ],
                 ),

@@ -18,8 +18,8 @@ class SearchResultWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomInkWell(
       onTap: (){
-        Get.to(PopularStoreWidget(itemList: storeList,));
-      },
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) =>PopularStoreWidget(itemList: storeList,)));
+        },
       child: Container(
         color: Colors.white,
         margin: EdgeInsets.symmetric(vertical: 10),

@@ -95,7 +95,8 @@ class _AddAddressWidgetState extends State<AddAddressWidget> with AutomaticKeepA
           borderRadius: BorderRadius.circular(5),
           onTap: (){
             widget.formKey.currentState.validate() ?
-            Get.to(DeliverToScreen()) : print("InCorrect");
+                Navigator.push(context, MaterialPageRoute(builder:(context){return DeliverToScreen();})):
+                print("InCorrect");
           },
         ): Container()
 

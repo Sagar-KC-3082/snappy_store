@@ -61,8 +61,8 @@ class SnappyServicesHomeScreen extends StatelessWidget {
                     itemBuilder: (context,index){
                       return CustomInkWell(
                         onTap: (){
-                          Get.to(SnappyServicesTask1Screen(title: _taskList[index],));
-                        },
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context) => SnappyServicesTask1Screen(title: _taskList[index],)));
+                          },
                         child: Container(
                           margin: EdgeInsets.symmetric(vertical:10),
                           padding: EdgeInsets.symmetric(vertical: 10,horizontal: 15),

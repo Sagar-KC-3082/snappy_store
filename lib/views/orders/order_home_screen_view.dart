@@ -21,7 +21,9 @@ class OrderHomeScreen extends StatelessWidget {
               SizedBox(height: Get.height*0.045,),
 
               CustomInkWell(
-                onTap: (){Get.to(OrderDetailsScreen());},
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder:(context){return OrderDetailsScreen();}));
+                  },
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8),

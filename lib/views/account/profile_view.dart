@@ -13,7 +13,7 @@ class ProfileScreen extends StatelessWidget {
 
   final ProfileController _profileController = Get.put(ProfileController());
 
-  Widget userInfo(){
+  Widget userInfo(BuildContext context){
     return
       Row(
         children: [
@@ -29,7 +29,7 @@ class ProfileScreen extends StatelessWidget {
             children: [
               CustomInkWell(
                   onTap: (){
-                    Get.to(EditProfile(title: "Name",fieldInfo: ["First Name","Last Name"],));
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) =>EditProfile(title: "Name",fieldInfo: ["First Name","Last Name"],)));
                     },
                   child: Text(_profileController.userFirstName.value+ " " +_profileController.userLastName.value,style: CustomTextStyle.smallBoldTextStyle1(),)),
               SizedBox(height: 5,),
@@ -54,7 +54,7 @@ class ProfileScreen extends StatelessWidget {
                 CustomAppBarRowWithCustomIconWithNoSpacing(title: "Profile"),
                 SizedBox(height:40,),
 
-                userInfo(),
+                userInfo(context),
                 SizedBox(height:40,),
 
                 CustomImageTextRowWidget(title: "Gender",title1:_profileController.gender.value,imageUrl: "assets/images/gender.png",fieldInfo: ["Choose Gender"],),
@@ -98,7 +98,7 @@ class _CustomImageTextRowWidgetState extends State<CustomImageTextRowWidget> {
           _isTapped = !_isTapped;
         });
         await Future.delayed(Duration(milliseconds: 200),(){
-          Get.to(EditProfile(title: widget.title,fieldInfo: widget.fieldInfo,));
+          Navigator.of(context).push(MaterialPageRoute(builder: (context) =>EditProfile(title: widget.title,fieldInfo: widget.fieldInfo,)));
           setState(() {
             _isTapped = !_isTapped;
           });

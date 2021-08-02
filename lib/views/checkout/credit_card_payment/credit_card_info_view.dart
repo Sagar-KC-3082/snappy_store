@@ -23,7 +23,13 @@ class CreditCardInfoScreen extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: AppConstants.screenHorizontalPadding,vertical: AppConstants.screenVerticalPadding),
           child: Column(
             children: [
-              CustomAppBarRowWithCustomIconWithNoSpacing(title: "Choose Card",icon: Icon(Icons.add,color: Colors.blue,),onTap: (){Get.to(AddCreditCard());},),
+              CustomAppBarRowWithCustomIconWithNoSpacing(
+                title: "Choose Card",
+                icon: Icon(Icons.add,color: Colors.blue,),
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder:(context){return AddCreditCard();}));
+                  },
+              ),
               SizedBox(height: 30,),
 
               Container(
@@ -44,8 +50,8 @@ class CreditCardInfoScreen extends StatelessWidget {
                 title: "Pay \$ 765.99",
                 borderRadius: BorderRadius.circular(8),
                 onTap: (){
-                  Get.to(PaymentSuccessScreen());
-                },
+                  Navigator.push(context, MaterialPageRoute(builder:(context){return PaymentSuccessScreen();}));
+                  },
               )
 
             ],

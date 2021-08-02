@@ -27,7 +27,9 @@ class _SnappyClassifiedCategoryWidgetState extends State<SnappyClassifiedCategor
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10),
       child: CustomInkWell(
-        onTap: (){Get.to(SnappyClassifiedProductDetailPageScreen(snappyClassifiedProductDetailModel:widget.snappyClassifiedProductDetailModel,));},
+        onTap: (){
+          Navigator.of(context).push(MaterialPageRoute(builder: (context) => SnappyClassifiedProductDetailPageScreen(snappyClassifiedProductDetailModel:widget.snappyClassifiedProductDetailModel,)));
+          },
         child: Row(
           children: [
             ClipRRect(

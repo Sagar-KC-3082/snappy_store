@@ -88,7 +88,7 @@ class ReviewScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(5),
                       onTap: (){
                         if(_formKey6.currentState.validate()){
-                          Get.to(HomeScreen());
+                          Navigator.push(context, MaterialPageRoute(builder:(context){return HomeScreen();}));
                         }
                       },
                     )

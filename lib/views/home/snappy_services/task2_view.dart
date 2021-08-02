@@ -50,8 +50,8 @@ class SnappyServicesTask2Screen extends StatelessWidget {
                       title: "Continue",
                       borderRadius: BorderRadius.circular(0),
                       onTap: (){
-                        Get.to(SnappyServicesTask3Screen());
-                      },
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => SnappyServicesTask3Screen()));
+                        },
                     )
                   ],
                 ),

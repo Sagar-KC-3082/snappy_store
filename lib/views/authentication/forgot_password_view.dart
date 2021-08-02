@@ -61,7 +61,9 @@ class ForgotPasswordView extends StatelessWidget {
                       children: [
                         Text("Don't have an account?",style: CustomTextStyle.mediumTextStyle()),
                         CustomInkWell(
-                            onTap: (){Get.to(SignUpView());},
+                            onTap: (){
+                              Navigator.push(context, MaterialPageRoute(builder:(context){return SignUpView();}));
+                              },
                             child: Text(" Sign Up",style: CustomTextStyle.boldMediumTextStyle())),
 
                       ],

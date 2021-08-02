@@ -53,8 +53,8 @@ class CustomBottomNavBar extends StatelessWidget {
         ),
         CustomInkWell(
           onTap: (){
-            Get.to(SnappyClassifiedPostAd());
-          },
+            Navigator.of(context).push(MaterialPageRoute(builder: (context) => SnappyClassifiedPostAd()));
+            },
           child: Container(
             margin: EdgeInsets.only(bottom: 20),
             decoration: BoxDecoration(

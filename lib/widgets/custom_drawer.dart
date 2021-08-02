@@ -3,6 +3,7 @@ import 'package:client_app1/configs/styles/custom_text_style.dart';
 import 'package:client_app1/controllers/home/parcel_and_courier/bottom_nav_controller.dart';
 import 'package:client_app1/views/home/snappy_classified/notification_view.dart';
 import 'package:client_app1/views/home/snappy_parcel_and_courier/bottom_nav_screen.dart';
+import 'package:client_app1/views/home/snappy_parcel_and_courier/snappy_parcel_bottom_nav_bar.dart';
 import 'package:client_app1/widgets/custom_inkwell.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -37,17 +38,21 @@ class CustomDrawer extends StatelessWidget {
           CustomInkWell(
               onTap: (){
                 _parcelAndCourierController.index.value = 1;
-                Get.to(ParcelAndCourierBottomNavScreen());},
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => SnappyParcelBottomNavScreen()));
+                },
               child: CustomRow(title: "Place Order",icon: Icon(Icons.shopping_cart,color: AppColors.primaryDarkOrange,),)
           ),
           CustomInkWell(
               onTap: (){
                 _parcelAndCourierController.index.value = 0;
-                Get.to(ParcelAndCourierBottomNavScreen());},
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => SnappyParcelBottomNavScreen()));
+                },
               child: CustomRow(title: "My Orders",icon: Icon(Icons.history,color: AppColors.primaryDarkOrange,),)
           ),
           CustomInkWell(
-              onTap: (){Get.to(SnappyClassifiedNotificationView());},
+              onTap: (){
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => SnappyClassifiedNotificationView()));
+                },
               child: CustomRow(title: "Notification",icon: Icon(Icons.notifications_none,color: AppColors.primaryDarkOrange,),)),
           CustomRow(title: "Help \& Feedback",icon: Icon(Icons.chat,color: AppColors.primaryDarkOrange,),),
           CustomRow(title: "Settings",icon: Icon(Icons.settings,color: AppColors.primaryDarkOrange,),)

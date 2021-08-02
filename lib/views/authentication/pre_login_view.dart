@@ -23,8 +23,20 @@ class PreLoginView extends StatelessWidget {
 
               Spacer(),
 
-              FullWidthButton(title: "SIGN IN",color: AppColors.primaryDarkBlue,onTap: (){Get.to(SignInView());},),
-              FullWidthButton(title: "SIGN UP",color: AppColors.primaryDarkOrange,onTap: (){Get.to(SignUpView());},),
+              FullWidthButton(
+                title: "SIGN IN",
+                color: AppColors.primaryDarkBlue,
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder:(context){return SignInView();}));
+                  },
+              ),
+              FullWidthButton(
+                title: "SIGN UP",
+                color: AppColors.primaryDarkOrange,
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder:(context){return SignUpView();}));
+                  },
+              ),
               SizedBox(height: 50,),
 
             ],

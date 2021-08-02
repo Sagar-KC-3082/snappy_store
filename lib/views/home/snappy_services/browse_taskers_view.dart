@@ -35,8 +35,8 @@ class SnappyServicesBrowseTaskersScreen extends StatelessWidget {
 
               CustomInkWell(
                 onTap: (){
-                  Get.to(SnappyServicesFilterScreen());
-                },
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => SnappyServicesFilterScreen()));
+                  },
                 child: Container(
                   margin: EdgeInsets.symmetric(horizontal: AppConstants.screenHorizontalPadding),
                   padding: EdgeInsets.symmetric(vertical: 8,horizontal: 30),
@@ -78,8 +78,8 @@ class SnappyServicesBrowseTaskersScreen extends StatelessWidget {
                                 ),
                                 CustomInkWell(
                                   onTap:(){
-                                      Get.to( TaskerDetailScreen(taskerDetail: _taskerList[index],));
-                                  },
+                                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => TaskerDetailScreen(taskerDetail: _taskerList[index],)));
+                                    },
                                   child: FullWidthButton(
                                     color: Color(0xFF1EA945),
                                     title: "Select \& Continue",

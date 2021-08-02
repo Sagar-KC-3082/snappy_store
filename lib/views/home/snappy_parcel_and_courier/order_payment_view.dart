@@ -56,8 +56,8 @@ class ParcelAndCourierOrderPayment extends StatelessWidget {
                 color: AppColors.primaryDarkOrange,
                 title: "Order Now",
                 onTap: (){
-                  Get.to(PaymentSuccessScreen(comingFromParcelScreen: true,));
-                },
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => PaymentSuccessScreen(comingFromParcelScreen: true,)));
+                  },
               )
 
             ],

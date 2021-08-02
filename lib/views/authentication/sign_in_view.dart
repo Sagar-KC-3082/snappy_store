@@ -58,13 +58,15 @@ class SignInView extends StatelessWidget {
                   FullWidthButton(color: AppColors.primaryDarkBlue,title: "SIGN IN",onTap: (){
                     FocusScope.of(context).unfocus();
                     if(_formKey1.currentState.validate()){
-                      Get.to(HomeScreen());
+                      Navigator.push(context, MaterialPageRoute(builder:(context){return HomeScreen();}));
                     }
                   },),
                   SizedBox(height: Get.height*0.05,),
 
                   Center(child: CustomInkWell(
-                      onTap: (){Get.to(ForgotPasswordView());},
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder:(context){return ForgotPasswordView();}));
+                        },
                       child: Text("FORGOT PASSWORD",style: CustomTextStyle.boldMediumTextStyle(),))),
                   SizedBox(height: Get.height*0.07,),
                   Center(
@@ -73,7 +75,9 @@ class SignInView extends StatelessWidget {
                       children: [
                         Text("Don't have an account?",style: CustomTextStyle.mediumTextStyle()),
                         CustomInkWell(
-                            onTap: (){Get.to(SignUpView());},
+                            onTap: (){
+                              Navigator.push(context, MaterialPageRoute(builder:(context){return SignUpView();}));
+                              },
                             child: Text(" Sign Up",style: CustomTextStyle.boldMediumTextStyle())),
 
                       ],

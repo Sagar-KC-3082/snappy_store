@@ -34,8 +34,8 @@ class PaymentSuccessScreen extends StatelessWidget {
                     title: "Order Details",
                     borderRadius: BorderRadius.circular(15),
                     onTap: (){
-                      Get.to(OrderDetailsAfterOrder());
-                    },
+                      Navigator.push(context, MaterialPageRoute(builder:(context){return OrderDetailsAfterOrder();}));
+                      },
                   ):
                   FullWidthButton(
                     color: AppColors.primaryDarkOrange,

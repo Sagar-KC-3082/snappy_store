@@ -182,8 +182,8 @@ class ParcelAndCourierOrderDetails extends StatelessWidget {
                       title: "Next",
                       onTap: (){
                         FocusScope.of(context).unfocus();
-                        Get.to(ParcelAndCourierOrderPayment());
-                      },
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => ParcelAndCourierOrderPayment()));
+                        },
                     )
                   ],
                 ),

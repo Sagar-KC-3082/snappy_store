@@ -107,7 +107,7 @@ class ParcelAndCourierAddLocationScreenAddDateTimeScreen extends StatelessWidget
                 color: AppColors.primaryDarkOrange,
                 maring: EdgeInsets.only(bottom:5),
                 onTap: (){
-                  Get.to(ParcelAndCourierOrderSize());
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => ParcelAndCourierOrderSize()));
                 },
               ),
 

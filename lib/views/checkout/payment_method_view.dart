@@ -55,7 +55,7 @@ class _PaymentWidgetState extends State<PaymentWidget> {
           _isTapped = !_isTapped;
         });
         await Future.delayed(Duration(milliseconds: 200),(){
-          Get.to(CreditCardInfoScreen());
+          Navigator.push(context, MaterialPageRoute(builder:(context){return CreditCardInfoScreen();}));
           setState(() {
             _isTapped = !_isTapped;
           });

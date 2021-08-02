@@ -88,7 +88,9 @@ class OrderDetailsScreen extends StatelessWidget {
                 color: AppColors.primaryDarkOrange,
                 title: "Notify Me",
                 borderRadius: BorderRadius.circular(8),
-                onTap: (){Get.to(ReviewScreen());},
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder:(context){return ReviewScreen();}));
+                  },
               )
 
             ],
