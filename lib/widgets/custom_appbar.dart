@@ -1,7 +1,9 @@
 import 'package:client_app1/configs/styles/app_colors.dart';
 import 'package:client_app1/configs/styles/custom_text_style.dart';
+import 'package:client_app1/views/home/home_screen_view.dart';
 import 'package:client_app1/views/search/search_screen.dart';
 import 'package:client_app1/widgets/custom_inkwell.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -17,7 +19,13 @@ class CustomAppBarRow extends StatelessWidget {
       padding: const EdgeInsets.only(top: 5),
       child: Row(
         children: [
-          searchBar == null ? Icon(Icons.menu,color: Colors.black,) :
+          searchBar == null ?
+          CustomInkWell(
+              onTap: (){
+                Get.offAll(HomeScreen());
+              },
+              child: Icon(CupertinoIcons.home,size:20,color: Colors.black,)
+          ) :
             CustomInkWell(
                 onTap: (){Navigator.pop(context);},
                 child: Icon(Icons.arrow_back_ios,color: Colors.black,size: 18,)),
@@ -50,14 +58,22 @@ class CustomAppBarRowOnlyText extends StatelessWidget {
       padding: const EdgeInsets.only(top: 5),
       child: Row(
         children: [
+          SizedBox(width: 5),
           CustomInkWell(
               onTap: (){
-                globalKey.currentState.openDrawer();
+                Get.offAll(HomeScreen());
               },
-              child: Icon(Icons.menu,color: Colors.black,)),
+              child: Icon(CupertinoIcons.home,size:20,color: Colors.black,)
+          ),
           Spacer(),
           Text(title,style: CustomTextStyle.appBarTextStyle(),),
           Spacer(),
+          CustomInkWell(
+              onTap: (){
+                globalKey.currentState.openEndDrawer();
+              },
+              child: Icon(Icons.menu,color: Colors.black,)
+          ),
         ],
       ),
     );
@@ -70,7 +86,8 @@ class CustomAppBarRowWithCustomIcon extends StatelessWidget {
   final String title;
   final Icon icon;
   final Function onTap;
-  CustomAppBarRowWithCustomIcon({this.title,this.icon,this.onTap});
+  final bool hideBackButton;
+  CustomAppBarRowWithCustomIcon({this.title,this.icon,this.onTap,this.hideBackButton});
 
   @override
   Widget build(BuildContext context) {
@@ -78,10 +95,17 @@ class CustomAppBarRowWithCustomIcon extends StatelessWidget {
       padding: const EdgeInsets.only(top: 5),
       child: Row(
         children: [
+          hideBackButton == true ?
+          CustomInkWell(
+              onTap: (){
+                Get.offAll(HomeScreen());
+              },
+              child: Icon(CupertinoIcons.home,size:20,color: Colors.black,)
+            ) :
           CustomInkWell(
               onTap: (){Navigator.pop(context);},
               child: Icon(Icons.arrow_back_ios,color: Colors.black,size: 18,)
-          ),
+            ),
           Spacer(),
           Text(title,style: CustomTextStyle.appBarTextStyle(),),
           Spacer(),

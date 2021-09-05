@@ -8,7 +8,7 @@ import 'package:client_app1/widgets/custom_inkwell.dart';
 import 'package:client_app1/widgets/custom_slliver_grid.dart';
 import 'package:client_app1/widgets/popular_store_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+
 
 class SnappyStoreHomeScreen extends StatelessWidget {
 
@@ -24,8 +24,6 @@ class SnappyStoreHomeScreen extends StatelessWidget {
     [StoreDetailModel(storeName: "Ahuja Gift Center",category: "Cards",stars: "69",rating: "10",detail:null,imageList: ["assets/images/gift1.jpg","assets/images/gift4.jpg","assets/images/gift3.jpg"],menuCategories: ["Cards","Frames","Bokey","Flowers","Chocolates"],items: [{"imageUrl":"assets/images/gift5.jpg","title1":"Greeting Card","title2":"Gifts","price":"11"},{"imageUrl":"assets/images/gift6.jpg","title1":"Wall Clock","title2":"Gifts","price":"121"}]),StoreDetailModel(storeName: "Archives",category: "Gift",stars: "69",rating: "453",detail:null,imageList: ["assets/images/gift2.jpg","assets/images/gift4.jpg","assets/images/gift3.jpg"],menuCategories: ["Cards","Frames","Bokey","Flowers","Chocolates"],items: [{"imageUrl":"assets/images/gift5.jpg","title1":"Greeting Card","title2":"Gifts","price":"11"},{"imageUrl":"assets/images/gift6.jpg","title1":"Wall Clock","title2":"Gifts","price":"121"}]),StoreDetailModel(storeName: "Gift hub",category: "Gifts",stars: "69",rating: "54",detail:null,imageList: ["assets/images/gift3.jpg","assets/images/gift4.jpg","assets/images/gift3.jpg"],menuCategories: ["Cards","Frames","Bokey","Flowers","Chocolates"],items: [{"imageUrl":"assets/images/gift5.jpg","title1":"Greeting Card","title2":"Gifts","price":"11"},{"imageUrl":"assets/images/gift6.jpg","title1":"Wall Clock","title2":"Gifts","price":"121"}]),StoreDetailModel(storeName: "Jamuna Card Shop",category: "Cards and Flowers",stars: "69",rating: "23",detail:null,imageList: ["assets/images/gift4.jpg","assets/images/gift4.jpg","assets/images/gift3.jpg"],menuCategories: ["Cards","Frames","Bokey","Flowers","Chocolates"],items: [{"imageUrl":"assets/images/gift5.jpg","title1":"Greeting Card","title2":"Gifts","price":"11"},{"imageUrl":"assets/images/gift6.jpg","title1":"Wall Clock","title2":"Gifts","price":"121"}]),],
   ];
 
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +33,7 @@ class SnappyStoreHomeScreen extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: AppConstants.screenHorizontalPadding,vertical: AppConstants.screenVerticalPadding),
           child: Column(
             children: [
-              CustomAppBarRowWithCustomIcon(title:"Snappy Store",),
+              CustomAppBarRowWithCustomIcon(title:"Snappy Store",hideBackButton: true,),
               SizedBox(height: 30,),
 
              Expanded(

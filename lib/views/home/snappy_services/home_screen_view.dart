@@ -1,9 +1,11 @@
 import 'package:client_app1/configs/constants/app_constants.dart';
 import 'package:client_app1/configs/styles/app_colors.dart';
 import 'package:client_app1/configs/styles/custom_text_style.dart';
+import 'package:client_app1/views/home/home_screen_view.dart';
 import 'package:client_app1/views/home/snappy_services/task1_view.dart';
 import 'package:client_app1/widgets/custom_inkwell.dart';
 import 'package:client_app1/widgets/custom_text_field.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -16,7 +18,12 @@ class SnappyServicesHomeScreen extends StatelessWidget {
   appBar(){
     return  Row(
       children: [
-        Icon(Icons.menu,color: Colors.black,size: 22,),
+        CustomInkWell(
+            onTap: (){
+              Get.offAll(HomeScreen());
+            },
+            child: Icon(CupertinoIcons.home,size:20,color: Colors.black,)
+        ),
         Spacer(),
         Image.asset("assets/images/splashImage.png",height: 45,width: 60,fit: BoxFit.cover,),
         Spacer(),

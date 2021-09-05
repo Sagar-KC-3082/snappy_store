@@ -12,10 +12,10 @@ import 'package:get/get.dart';
 class ParcelAndCourierOrderSize extends StatelessWidget {
 
   final List <ParcelAndCourierModel> _orderSizeDetails = [
-    ParcelAndCourierModel(imageUrl: "assets/images/order1.png",title1: "Small",title2: "Max. 25 kg, 8 x 38 x 64 cm",title3: "Fits in an envelope"),
-    ParcelAndCourierModel(imageUrl: "assets/images/parcel1.jpg",title1: "Medium",title2: "Max. 25 kg, 19 x 38 x 64 cm",title3: "Fits in an shoe box"),
-    ParcelAndCourierModel(imageUrl: "assets/images/parcel2.jpg",title1: "Large",title2: "Max. 25 kg, 41 x 38 x 64 cm",title3: "Fits in an cardboard box"),
-    ParcelAndCourierModel(imageUrl: "assets/images/parcel5.png",title1: "Custom",title2: "Max: 30kg or 300cm",title3: "Fits in an skid"),
+    ParcelAndCourierModel(imageUrl: "assets/images/order1.png",title1: "Small",title2: "Max. 25 pounds, 8 x 38 x 64 cm",title3: "Fits in an envelope"),
+    ParcelAndCourierModel(imageUrl: "assets/images/parcel1.jpg",title1: "Medium",title2: "Max. 25 pounds, 19 x 38 x 64 cm",title3: "Fits in an shoe box"),
+    ParcelAndCourierModel(imageUrl: "assets/images/parcel2.jpg",title1: "Large",title2: "Max. 25 pounds, 41 x 38 x 64 cm",title3: "Fits in an cardboard box"),
+    ParcelAndCourierModel(imageUrl: "assets/images/parcel5.png",title1: "Custom",title2: "Max: 30 pounds or 300cm",title3: "Fits in an skid"),
 
   ];
 

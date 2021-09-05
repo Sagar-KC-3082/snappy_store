@@ -13,16 +13,31 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 
-class StoreDetailWidget extends StatelessWidget {
+class StoreDetailWidget extends StatefulWidget {
 
  final StoreDetailModel storeDetailModel;
 
  StoreDetailWidget({this.storeDetailModel});
 
+  @override
+  _StoreDetailWidgetState createState() => _StoreDetailWidgetState();
+}
+
+class _StoreDetailWidgetState extends State<StoreDetailWidget> {
+
+  int _maxLines = 2;
+  bool showMore = true;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: AppColors.primaryDarkOrange,
+        child: Icon(Icons.shopping_cart_sharp,color: Colors.white,size: 30,),
+        onPressed: (){
+          Navigator.push(context,MaterialPageRoute(builder: (context){return YourCart();}));
+        },
+      ),
       backgroundColor: AppColors.backgroundColor,
       body: SafeArea(
         child: ListView(
@@ -30,7 +45,7 @@ class StoreDetailWidget extends StatelessWidget {
           children: [
             Padding(
                 padding: EdgeInsets.symmetric(horizontal: AppConstants.screenHorizontalPadding,vertical: AppConstants.screenVerticalPadding),
-                child: CustomAppBarRowWithCustomIcon(title: storeDetailModel.storeName,icon: Icon(Icons.share_rounded),)),
+                child: CustomAppBarRowWithCustomIcon(title: widget.storeDetailModel.storeName,icon: Icon(Icons.share_rounded),)),
             SizedBox(height: 5,),
 
             SizedBox(
@@ -38,11 +53,11 @@ class StoreDetailWidget extends StatelessWidget {
               child: ListView.builder(
                 physics: ClampingScrollPhysics(),
                   scrollDirection: Axis.horizontal,
-                  itemCount: storeDetailModel.imageList.length,
+                  itemCount: widget.storeDetailModel.imageList.length,
                   itemBuilder: (context,index){
                     return Padding(
                       padding: const EdgeInsets.only(right:5),
-                      child: Image.asset(storeDetailModel.imageList[index],width: Get.width*0.75,fit: BoxFit.cover),
+                      child: Image.asset(widget.storeDetailModel.imageList[index],width: Get.width*0.75,fit: BoxFit.cover),
                     );
                   }
               ),
@@ -54,28 +69,42 @@ class StoreDetailWidget extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(storeDetailModel.storeName,style: CustomTextStyle.ultraBoldTextStyleForHeading(color: Colors.black),),
+                  Text(widget.storeDetailModel.storeName,style: CustomTextStyle.ultraBoldTextStyleForHeading(color: Colors.black),),
                   SizedBox(height: 2,),
-                  Text(storeDetailModel.category,style: CustomTextStyle.ultraSmallTextStyle(color: Colors.grey),),
+                  Text(widget.storeDetailModel.category,style: CustomTextStyle.ultraSmallTextStyle(color: Colors.grey),),
                   SizedBox(height: 5,),
                   Row(
                     children: [
                       Icon(Icons.star,color: Colors.amber,),Icon(Icons.star,color: Colors.amber,),Icon(Icons.star,color: Colors.amber,),Icon(Icons.star,color: Colors.amber,),Icon(Icons.star_border,color: Colors.grey,),
-                      Text("( ${storeDetailModel.rating} )",style: CustomTextStyle.ultraSmallTextStyle(color: Colors.grey),)
+                      Text("( ${widget.storeDetailModel.rating} )",style: CustomTextStyle.ultraSmallTextStyle(color: Colors.grey),)
                     ],
                   ),
 
                   SizedBox(height: 20,),
-                  Text(storeDetailModel.detail !=null ? storeDetailModel.detail : "Shorts dress in soft cotton jersey with decorative buttons down the front and a wide, frill-trimmed square neckline with concealed elastication. Elasticated seam under the bust and short puff sleeves with a small frill trim.",style: CustomTextStyle.smallTextStyle1(color: Colors.black),),
-                  SizedBox(height:30,),
-                  Row(
-                    children: [
-                      Text("More details",style: CustomTextStyle.mediumTextStyle(),),
-                      Spacer(),
-                      Icon(Icons.navigate_next,color: Colors.grey,)
-                    ],
-                  ),
-                  SizedBox(height:30,),
+                  Text(widget.storeDetailModel.detail !=null ? widget.storeDetailModel.detail : "Shorts dress in soft cotton jersey with decorative buttons down the front and a wide, frill-trimmed square neckline with concealed elastication. Elasticated seam under the bust and short puff sleeves with a small frill trim.",style: CustomTextStyle.smallTextStyle1(color: Colors.black),maxLines: _maxLines,),
+                  showMore ? Padding(
+                    padding: const EdgeInsets.only(top: 5,right: 10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [CustomInkWell(
+                          onTap:(){
+                            setState(() {
+                               _maxLines = 10;
+                               showMore = false;
+                            });
+                          },
+                          child: Text("See More",style: TextStyle(color: Colors.grey,fontSize: 12,fontFamily: "PoppinsRegular"),)),],
+                    ),
+                  ) : Container(),
+                  SizedBox(height:20,),
+                  // Row(
+                  //   children: [
+                  //     Text("More details",style: CustomTextStyle.mediumTextStyle(),),
+                  //     Spacer(),
+                  //     Icon(Icons.navigate_next,color: Colors.grey,)
+                  //   ],
+                  // ),
+                  // SizedBox(height:30,),
 
                   Row(
                     children: [
@@ -92,16 +121,16 @@ class StoreDetailWidget extends StatelessWidget {
                   ),
                   SizedBox(height: 20),
 
-                 ( storeDetailModel.menuCategories == null || storeDetailModel.menuCategories.length==0 ) ? Container() :
+                 ( widget.storeDetailModel.menuCategories == null || widget.storeDetailModel.menuCategories.length==0 ) ? Container() :
                   Container(
                     height: 45  ,width: Get.width,
                     child: ListView.builder(
                       physics: ClampingScrollPhysics(),
                       shrinkWrap: true,
                       scrollDirection: Axis.horizontal,
-                      itemCount: storeDetailModel.menuCategories.length,
+                      itemCount: widget.storeDetailModel.menuCategories.length,
                       itemBuilder: (context,index){
-                        return CustomContainer(title: storeDetailModel.menuCategories[index],);
+                        return CustomContainer(title: widget.storeDetailModel.menuCategories[index],);
                       },
                     ),
                   ),
@@ -112,40 +141,40 @@ class StoreDetailWidget extends StatelessWidget {
                   // storeDetailModel.stars=="30" ? AddItemWidget(imageUrl: "assets/images/grocery5.png",title1: "Ginger",title2: "Spices",price: "51\$",): storeDetailModel.stars == "69" ?  AddItemWidget(imageUrl: "assets/images/cloth6.png",title1: "Blouse",title2: "Summer",price: "32\$",): AddItemWidget(imageUrl: "assets/images/foodItem8.png",title1: "Kaju Panner",title2: "Raisins",price: "100\$",),
                   // SizedBox(height: 10,),
 
-                  storeDetailModel.items == null || storeDetailModel.items.length == 0 ? Container():
+                  widget.storeDetailModel.items == null || widget.storeDetailModel.items.length == 0 ? Container():
                       ListView.builder(
                         physics: ClampingScrollPhysics(),
                         shrinkWrap: true,
-                        itemCount: storeDetailModel.items.length,
+                        itemCount: widget.storeDetailModel.items.length,
                         itemBuilder: (context,index){
-                          return AddItemWidget(imageUrl: storeDetailModel.items[index]["imageUrl"],title1: storeDetailModel.items[index]["title1"],title2: storeDetailModel.items[index]["title2"],price: storeDetailModel.items[index]["price"],);
+                          return AddItemWidget(imageUrl: widget.storeDetailModel.items[index]["imageUrl"],title1: widget.storeDetailModel.items[index]["title1"],title2: widget.storeDetailModel.items[index]["title2"],price: widget.storeDetailModel.items[index]["price"],);
                         },
                       ),
-
-                  Row(
-                    children: [
-                      Spacer(),
-                      CustomInkWell(
-                        onTap: (){
-                          Navigator.push(context,MaterialPageRoute(builder: (context){return YourCart();}));
-                          },
-                        child: Badge(
-                            padding: EdgeInsets.all(10),
-                            badgeColor: Colors.white,
-                            badgeContent: Text("2",style: CustomTextStyle.mediumTextStyle(color: Colors.black),),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Colors.black,
-                              ),
-                              padding: EdgeInsets.symmetric(horizontal: 15,vertical: 15),
-                              child: Image.asset("assets/images/trolley.png"),
-                            )),
-                      ),
-                      SizedBox(width: 10,)
-                    ],
-                  ),
-                  SizedBox(height: 20,),
+                  //
+                  // Row(
+                  //   children: [
+                  //     Spacer(),
+                  //     CustomInkWell(
+                  //       onTap: (){
+                  //         Navigator.push(context,MaterialPageRoute(builder: (context){return YourCart();}));
+                  //         },
+                  //       child: Badge(
+                  //           padding: EdgeInsets.all(10),
+                  //           badgeColor: Colors.white,
+                  //           badgeContent: Text("2",style: CustomTextStyle.mediumTextStyle(color: Colors.black),),
+                  //           child: Container(
+                  //             decoration: BoxDecoration(
+                  //               shape: BoxShape.circle,
+                  //               color: Colors.black,
+                  //             ),
+                  //             padding: EdgeInsets.symmetric(horizontal: 15,vertical: 15),
+                  //             child: Image.asset("assets/images/trolley.png"),
+                  //           )),
+                  //     ),
+                  //     SizedBox(width: 10,)
+                  //   ],
+                  // ),
+                  // SizedBox(height: 20,),
 
 
                 ],

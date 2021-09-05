@@ -20,7 +20,7 @@ class ParcelAndCourierPlaceOrderScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: CustomDrawer(),
+      endDrawer: CustomDrawer(),
       key: _globalKey2,
       backgroundColor: AppColors.backgroundColor,
       body: SafeArea(

@@ -33,8 +33,8 @@ class SnappyParcelBottomNavScreen extends StatelessWidget {
 
   List<Widget> _buildScreens() {
     return [
-      ParcelHomeScreen(),
       ParcelAndCourierPlaceOrderScreen(),
+      ParcelHomeScreen(),
       SnappyClassifiedNotificationView(),
       ChatHomeScreen(),
     ];
@@ -44,15 +44,15 @@ class SnappyParcelBottomNavScreen extends StatelessWidget {
   List<PersistentBottomNavBarItem> _navBarsItems() {
     return [
       PersistentBottomNavBarItem(
-          icon: Icon(Icons.mail_outlined),
-          title: ("My Orders"),
+          icon:Icon(Icons.all_inbox),
+          title: ("Place Order"),
           activeColor: Colors.white,
           inactiveColor: Colors.white,
           titleStyle: TextStyle(fontFamily: "PoppinsRegular",fontSize: 12)
       ),
       PersistentBottomNavBarItem(
-          icon:Icon(Icons.all_inbox),
-          title: ("Place Order"),
+          icon: Icon(Icons.mail_outlined),
+          title: ("My Orders"),
           activeColor: Colors.white,
           inactiveColor: Colors.white,
           titleStyle: TextStyle(fontFamily: "PoppinsRegular",fontSize: 12)

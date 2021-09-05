@@ -3,7 +3,6 @@ import 'package:client_app1/configs/styles/app_colors.dart';
 import 'package:client_app1/configs/styles/custom_text_style.dart';
 import 'package:client_app1/views/home/snappy_classified/snappy_classified_bottom_nav_bar.dart';
 import 'package:client_app1/views/home/snappy_food/snappy_food_bottom_nav_bar.dart';
-import 'package:client_app1/views/home/snappy_parcel_and_courier/bottom_nav_screen.dart';
 import 'package:client_app1/views/home/snappy_parcel_and_courier/snappy_parcel_bottom_nav_bar.dart';
 import 'package:client_app1/views/home/snappy_services/snappy_services_bottom_nav_var.dart';
 import 'package:client_app1/views/home/snappy_store/snappy_store_bottom_nav_bar.dart';
@@ -90,7 +89,7 @@ class HomeScreen extends StatelessWidget {
                           onTap: (){
                             Navigator.of(context).push(MaterialPageRoute(builder: (context) => SnappyParcelBottomNavScreen()));
                             },
-                          child: iconWithText("Parcel \& Courier", "assets/images/parcel100.jpg"),
+                          child: iconWithText("Snappy Delivery", "assets/images/parcel100.jpg"),
                         )),
                         SizedBox(width: 15,),
                         Expanded(child: Text(""))
